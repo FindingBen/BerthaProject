@@ -5,6 +5,7 @@
   <title>Coding Template</title>
   <link rel="stylesheet" type="text/css" href="bundle.css">
   <link href="https://fonts.googleapis.com/css?family=Heebo|Hind+Vadodara|Julius+Sans+One|Jura|M+PLUS+1p" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -12,21 +13,21 @@
   <h2>Login</h2>
   <div class="container-login100">
     <div class="wrap-login100 ">
-      <form class="login100-form">
+      <form class="login100-form"  name="login">
         
 
         <div class="wrap-input100" data-validate ="Enter username">
-          <input class="input100" type="text" name="username">
+          <input class="input100" type="text" name="username" id="Username">
           <span class="focus-input100" data-placeholder="Username"></span>
         </div>
 
         <div class="wrap-input100" data-validate="Enter password">
-          <input class="input100" type="password" name="pass">
+          <input class="input100" type="password" name="pass" id="password">
           <span class="focus-input100" data-placeholder="Password"></span>
         </div>
 
         <div class="container-login100-form-btn">
-          <button class="login100-form-btn">
+          <button class="login100-form-btn" id="Logs" onclick="Login()" >
             Login
           </button>
         </div>
