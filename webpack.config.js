@@ -10,7 +10,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 module.exports = {
   // which files should webpack watch and transpile
   entry: ['./src/index.htm', './src/scss/styles.scss', './src/js/index.ts',
-  './src/MainPage.htm','./src/js/userRegistration','./src/SignUpPage.htm'],
+  './src/MainPage.htm','./src/js/userRegistration','./src/SignUpPage.htm','./src/js/MainPage.ts'],
   module: {
     // rules webpack should follow when watching...
     rules: [
