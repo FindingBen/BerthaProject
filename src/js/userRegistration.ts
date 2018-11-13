@@ -11,6 +11,7 @@ interface IUsers {
     email: string;
     password: string;
     isAdmin:boolean ;
+    location:string;
 
 }
 
@@ -22,18 +23,21 @@ function addUser():void{
     let addEmail:HTMLInputElement=<HTMLInputElement>document.getElementById("inputEmail")
     let addName:HTMLInputElement=<HTMLInputElement>document.getElementById("inputName")
     let addPass:HTMLInputElement=<HTMLInputElement>document.getElementById("inputPassword")
+    let addLocation:HTMLInputElement=<HTMLInputElement>document.getElementById("inputLocation")
+
     let addAdmin:HTMLInputElement=<HTMLInputElement>document.getElementById("inputCheck")
 
     let MyEmail:string=addEmail.value;
     let MyName:string=addName.value;
     let MyPass:number=Number(addPass.value);
     let MyAdmin:boolean=Boolean(addAdmin.value);
+    let MyLocation:string=addLocation.value;
 
 
     let URI:string="https://birthawebservice20181031094923.azurewebsites.net/api/user"
 
   
-    axios.post<IUsers>(URI,{name:MyName,email:MyEmail,password:MyPass, isAdmin:MyAdmin})
+    axios.post<IUsers>(URI,{name:MyName,email:MyEmail,password:MyPass, isAdmin:MyAdmin , location:MyLocation})
     .then(function(response:AxiosResponse):void{
         console.log(response.status+" "+response.statusText);
 

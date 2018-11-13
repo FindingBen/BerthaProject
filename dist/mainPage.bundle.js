@@ -1998,17 +1998,17 @@ var healthList = document.getElementById("HealthList");
 var GetById = document.getElementById("getData");
 GetById.addEventListener("click", getAll);
 function getAll() {
-    var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/user";
+    var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/health";
     _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.get(uri)
         .then(function (response) {
         console.log(response.data);
-        var result = "<ol>";
+        var result = "";
         response.data.forEach(function (health) {
-            result += "<li>" + " " + health.bloodPressure + " " + health.gender + " " + health.heartBeat + " " + health.weight + " " + health.userId + "</li>";
+            result += "<p>" + "User Id:" + health.userId + "  Blood pressure: " + health.bloodPressure + " Gender:" + health.gender + " Heart Beat: " + health.heartBeat + " Weight: " + health.weight + "</p>";
         });
         //Issa I made bellow 2 lines,u can delete them if you want,i followed anders code and he have
         //this so I hoped this will fix the "undefined" issue
-        result += "</ol>";
+        // result+="</ol>";
         healthList.innerHTML = result;
         console.log(result);
     })
