@@ -15,7 +15,7 @@ import axios, {
         gender:string;
         userId:number;
     }
-    let healthList: HTMLOListElement = <HTMLOListElement>document.getElementById("HealthList");
+    let healthList: HTMLDivElement = <HTMLDivElement>document.getElementById("HealthList");
     //getData
     let GetById: HTMLButtonElement = <HTMLButtonElement>document.getElementById("getData");
     GetById.addEventListener("click", getAll);
@@ -26,13 +26,16 @@ import axios, {
             .then(function (response: AxiosResponse<Ihealth[]>): void {
     
                 console.log(response.data);
-                let result: string = "";
+                let result: string = "<ol>";
     
                 response.data.forEach((health: Ihealth) => {
     
-                    result += "<p>" + " " + health.bloodPressure + " " + health.gender + " " + health.heartBeat+" "+health.weight+" "+health.userId+ "</p>";
+                    result += "<li>" + " " + health.bloodPressure + " " + health.gender + " " + health.heartBeat+" "+health.weight+" "+health.userId+ "</li>";
     
                 });
+                //Issa I made bellow 2 lines,u can delete them if you want,i followed anders code and he have
+                //this so I hoped this will fix the "undefined" issue
+                result+="</ol>";
                 healthList.innerHTML = result;
                 console.log(result);
             })

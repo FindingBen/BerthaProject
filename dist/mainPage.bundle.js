@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/MainPage.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1981,39 +1981,6 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./src/MainPage.htm":
-/*!**************************!*\
-  !*** ./src/MainPage.htm ***!
-  \**************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "MainPage.htm";
-
-/***/ }),
-
-/***/ "./src/SignUpPage.htm":
-/*!****************************!*\
-  !*** ./src/SignUpPage.htm ***!
-  \****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "SignUpPage.htm";
-
-/***/ }),
-
-/***/ "./src/index.htm":
-/*!***********************!*\
-  !*** ./src/index.htm ***!
-  \***********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "index.htm";
-
-/***/ }),
-
 /***/ "./src/js/MainPage.ts":
 /*!****************************!*\
   !*** ./src/js/MainPage.ts ***!
@@ -2051,124 +2018,7 @@ function getAll() {
 }
 
 
-/***/ }),
-
-/***/ "./src/js/index.ts":
-/*!*************************!*\
-  !*** ./src/js/index.ts ***!
-  \*************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/axios/index */ "./node_modules/axios/index.js");
-/* harmony import */ var _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0__);
-
-//Here is the list of users we have in database,by this list we are calling users from database
-var userList = [];
-var log = document.getElementById("Logs");
-log.addEventListener("click", Login);
-var user = document.getElementById("Username");
-var pas = document.getElementById("password");
-//As it says when you hoover with your mouse over it,when window loads (something) that is the first thing user sees
-window.onload = function () {
-    var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/user";
-    _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.get(uri)
-        .then(function (response) {
-        response.data.forEach(function (user) {
-            if (user != null) {
-                userList.push(user);
-            }
-        });
-        console.log(userList);
-    })
-        .catch(function (error) {
-        console.log(error);
-    });
-};
-//Logic behind Login
-function Login() {
-    var inputUsername = user.value;
-    var inputPassword = pas.value;
-    userList.forEach(function (element) {
-        if (inputUsername == element.name && inputPassword == element.password) {
-            window.open('MainPage.htm');
-        }
-        else {
-            alert("Wrong credentials!");
-        }
-    });
-}
-
-
-/***/ }),
-
-/***/ "./src/js/userRegistration.ts":
-/*!************************************!*\
-  !*** ./src/js/userRegistration.ts ***!
-  \************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/axios/index */ "./node_modules/axios/index.js");
-/* harmony import */ var _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0__);
-//implement Post for users reg
-
-var addUserButton = document.getElementById("createAccount");
-addUserButton.addEventListener("click", addUser);
-function addUser() {
-    var addEmail = document.getElementById("inputEmail");
-    var addName = document.getElementById("inputName");
-    var addPass = document.getElementById("inputPassword");
-    var addAdmin = document.getElementById("inputCheck");
-    var MyEmail = addEmail.value;
-    var MyName = addName.value;
-    var MyPass = Number(addPass.value);
-    var MyAdmin = Boolean(addAdmin.value);
-    var URI = "https://birthawebservice20181031094923.azurewebsites.net/api/user";
-    _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.post(URI, { name: MyName, email: MyEmail, password: MyPass, isAdmin: MyAdmin })
-        .then(function (response) {
-        console.log(response.status + " " + response.statusText);
-    })
-        .catch(function (error) {
-        console.log(error);
-    });
-}
-
-
-/***/ }),
-
-/***/ "./src/scss/styles.scss":
-/*!******************************!*\
-  !*** ./src/scss/styles.scss ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "bundle.css";
-
-/***/ }),
-
-/***/ 0:
-/*!****************************************************************************************************************************************************************!*\
-  !*** multi ./src/index.htm ./src/scss/styles.scss ./src/js/index.ts ./src/MainPage.htm ./src/js/userRegistration.ts ./src/SignUpPage.htm ./src/js/MainPage.ts ***!
-  \****************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ./src/index.htm */"./src/index.htm");
-__webpack_require__(/*! ./src/scss/styles.scss */"./src/scss/styles.scss");
-__webpack_require__(/*! ./src/js/index.ts */"./src/js/index.ts");
-__webpack_require__(/*! ./src/MainPage.htm */"./src/MainPage.htm");
-__webpack_require__(/*! ./src/js/userRegistration.ts */"./src/js/userRegistration.ts");
-__webpack_require__(/*! ./src/SignUpPage.htm */"./src/SignUpPage.htm");
-module.exports = __webpack_require__(/*! ./src/js/MainPage.ts */"./src/js/MainPage.ts");
-
-
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map
+//# sourceMappingURL=mainPage.bundle.js.map
