@@ -5,3 +5,13 @@ body
     padding-top: 18px;
     margin-bottom: 20px;
 }
+
+.signUp-1{
+
+    padding-top: 18px;
+    margin-bottom: 20px;
+}
+.signUpInput{
+    outline: none;
+  border: none;
+}

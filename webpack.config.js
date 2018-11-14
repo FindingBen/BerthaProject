@@ -11,7 +11,8 @@ module.exports = {
   // which files should webpack watch and transpile
   entry: {
     index: './src/js/index.ts',
-    mainPage:'./src/js/MainPage.ts'
+    mainPage:'./src/js/MainPage.ts',
+    userRegistration:'./src/js/userRegistration.ts'
   },
   module: {
     // rules webpack should follow when watching...
