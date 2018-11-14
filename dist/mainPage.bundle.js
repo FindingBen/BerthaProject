@@ -2006,9 +2006,6 @@ function getAll() {
         response.data.forEach(function (health) {
             result += "<p>" + "User Id:" + health.userId + "<br>Blood pressure: " + health.bloodPressure + "<br>Gender:" + health.gender + "<br>Heart Beat: " + health.heartBeat + "<br>Weight: " + health.weight + "</p>";
         });
-        //Issa I made bellow 2 lines,u can delete them if you want,i followed anders code and he have
-        //this so I hoped this will fix the "undefined" issue
-        // result+="</ol>";
         healthList.innerHTML = result;
         console.log(result);
     })
@@ -2028,7 +2025,6 @@ function getById() {
         console.log(response.data);
         var result = "";
         result += "<p>" + "  Blood pressure:  " + response.data.bloodPressure + "<br> Gender: " + response.data.gender + "<br> Heart Beat: " + response.data.heartBeat + "<br> Weight: " + response.data.weight + "</p>";
-        // healthById.innerHTML="<p>" + "  Blood pressure: " +response.data.bloodPressure+ " Gender:" + response.data.gender+ + " Heart Beat: " + response.data.heartBeat + " Weight: " + response.data.weight +  "</p>";
         healthById.innerHTML = result;
         console.log(result);
     })
@@ -2049,9 +2045,6 @@ function getAllEnviro() {
         response.data.forEach(function (enviro) {
             result += "<p>" + "User Id:" + enviro.userId + "<br>Oxygen: " + enviro.oxygen + "<br>Nitrogen:" + enviro.nitrogen + "<br>Methane: " + enviro.methane + "<br>CarbonDioxide: " + enviro.carbonDioxide + "</p>";
         });
-        //Issa I made bellow 2 lines,u can delete them if you want,i followed anders code and he have
-        //this so I hoped this will fix the "undefined" issue
-        // result+="</ol>";
         EnviroList.innerHTML = result;
         console.log(result);
     })
