@@ -2036,6 +2036,29 @@ function getById() {
         console.log(error);
     });
 }
+var EnviroList = document.getElementById("EnviroList");
+//getData
+var GetEnviro = document.getElementById("getEnviroData");
+GetEnviro.addEventListener("click", getAllEnviro);
+function getAllEnviro() {
+    var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/environment";
+    _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.get(uri)
+        .then(function (response) {
+        console.log(response.data);
+        var result = "";
+        response.data.forEach(function (enviro) {
+            result += "<p>" + "User Id:" + enviro.userId + "<br>Oxygen: " + enviro.oxygen + "<br>Nitrogen:" + enviro.nitrogen + "<br>Methane: " + enviro.methane + "<br>CarbonDioxide: " + enviro.carbonDioxide + "</p>";
+        });
+        //Issa I made bellow 2 lines,u can delete them if you want,i followed anders code and he have
+        //this so I hoped this will fix the "undefined" issue
+        // result+="</ol>";
+        EnviroList.innerHTML = result;
+        console.log(result);
+    })
+        .catch(function (error) {
+        console.log(error);
+    });
+}
 
 
 /***/ })

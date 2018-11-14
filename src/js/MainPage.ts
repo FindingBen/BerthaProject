@@ -14,6 +14,15 @@ interface Ihealth {
     gender: string;
     userId: number;
 }
+interface IEnvironment{
+id:number;
+oxygen:number;
+nitrogen:number;
+carbonDioxide:number;
+methane:number;
+userId:number;
+}
+
 let healthList:HTMLOListElement  = <HTMLOListElement>document.getElementById("HealthList");
 //getData
 let GetById: HTMLButtonElement = <HTMLButtonElement>document.getElementById("getData");
@@ -67,4 +76,34 @@ function getById():void{
         })
 
 
+}
+
+
+let EnviroList:HTMLOListElement  = <HTMLOListElement>document.getElementById("EnviroList");
+//getData
+let GetEnviro: HTMLButtonElement = <HTMLButtonElement>document.getElementById("getEnviroData");
+GetEnviro.addEventListener("click", getAllEnviro);
+
+function getAllEnviro(): void {
+    let uri: string = "https://birthawebservice20181031094923.azurewebsites.net/api/environment";
+    axios.get<IEnvironment[]>(uri)
+        .then(function (response: AxiosResponse<IEnvironment[]>): void {
+
+            console.log(response.data);
+            let result: string = "";
+
+            response.data.forEach((enviro: IEnvironment) => {
+
+                result += "<p>" + "User Id:" + enviro.userId + "<br>Oxygen: " + enviro.oxygen + "<br>Nitrogen:" + enviro.nitrogen + "<br>Methane: " + enviro.methane + "<br>CarbonDioxide: " + enviro.carbonDioxide + "</p>";
+
+            });
+            //Issa I made bellow 2 lines,u can delete them if you want,i followed anders code and he have
+            //this so I hoped this will fix the "undefined" issue
+            // result+="</ol>";
+            EnviroList.innerHTML = result;
+            console.log(result);
+        })
+        .catch(function (error: AxiosError) {
+            console.log(error);
+        })
 }
