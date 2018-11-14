@@ -2004,12 +2004,32 @@ function getAll() {
         console.log(response.data);
         var result = "";
         response.data.forEach(function (health) {
-            result += "<p>" + "User Id:" + health.userId + "  Blood pressure: " + health.bloodPressure + " Gender:" + health.gender + " Heart Beat: " + health.heartBeat + " Weight: " + health.weight + "</p>";
+            result += "<p>" + "User Id:" + health.userId + "<br>Blood pressure: " + health.bloodPressure + "<br>Gender:" + health.gender + "<br>Heart Beat: " + health.heartBeat + "<br>Weight: " + health.weight + "</p>";
         });
         //Issa I made bellow 2 lines,u can delete them if you want,i followed anders code and he have
         //this so I hoped this will fix the "undefined" issue
         // result+="</ol>";
         healthList.innerHTML = result;
+        console.log(result);
+    })
+        .catch(function (error) {
+        console.log(error);
+    });
+}
+var healthById = document.getElementById("ShowHealthById");
+var getByIdButton = document.getElementById("getDataById");
+getByIdButton.addEventListener("click", getById);
+function getById() {
+    var IdInputElement = document.getElementById("idInput");
+    var idElement = IdInputElement.value;
+    var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/health/" + idElement;
+    _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.get(uri)
+        .then(function (response) {
+        console.log(response.data);
+        var result = "";
+        result += "<p>" + "  Blood pressure:  " + response.data.bloodPressure + "<br> Gender: " + response.data.gender + "<br> Heart Beat: " + response.data.heartBeat + "<br> Weight: " + response.data.weight + "</p>";
+        // healthById.innerHTML="<p>" + "  Blood pressure: " +response.data.bloodPressure+ " Gender:" + response.data.gender+ + " Heart Beat: " + response.data.heartBeat + " Weight: " + response.data.weight +  "</p>";
+        healthById.innerHTML = result;
         console.log(result);
     })
         .catch(function (error) {
