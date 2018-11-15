@@ -13,6 +13,12 @@ h2 {
   font-family: Jura;
   text-align: center; }
 
+  h4{
+    color: #7eabb3;
+    font-family: Jura;
+    text-align: center;
+}
+
 .txt1 {
   color: #7eabb3;
   font-family: Jura;
@@ -27,7 +33,10 @@ h2 {
   color: #7eabb3;
   font-family: Jura; }
 
-
+  .label-checkbox100{
+    color: #7eabb3;
+    font-family: Jura;
+  }
 
 .login100-form {
   margin-bottom: 70px; }
