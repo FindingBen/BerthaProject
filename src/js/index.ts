@@ -5,7 +5,7 @@ import axios, {
     from "../../node_modules/axios/index";
 
 interface IUsers {
-
+    id:number;
     name: string;
     email: string;
     password: string;
@@ -39,7 +39,9 @@ window.onload=()=>{
 
 //Logic behind Login
 function Login(): void {
-
+    //I will work on our push id method so that when user logs in
+    //based on ID only his health data will show up
+    let UserId:number=Number(user.id);
     let inputUsername: string = user.value;
     let inputPassword: string = pas.value;
     

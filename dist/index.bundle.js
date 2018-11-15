@@ -2017,6 +2017,9 @@ window.onload = function () {
 };
 //Logic behind Login
 function Login() {
+    //I will work on our push id method so that when user logs in
+    //based on ID only his health data will show up
+    var UserId = Number(user.id);
     var inputUsername = user.value;
     var inputPassword = pas.value;
     userList.forEach(function (element) {

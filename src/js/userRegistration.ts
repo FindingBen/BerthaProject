@@ -25,6 +25,8 @@ function addUser():void{
     let addAdmin:HTMLInputElement=<HTMLInputElement>document.getElementById("inputCheck");
     let addLocation:HTMLInputElement=<HTMLInputElement>document.getElementById("inputLocation");
 
+
+
     let MyEmail:string=addEmail.value;
     let MyName:string=addName.value;
     let MyPass:number=Number(addPass.value);
