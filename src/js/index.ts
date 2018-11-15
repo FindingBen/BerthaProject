@@ -48,7 +48,7 @@ function Login(): void {
             window.open('MainPage.htm');
         }
         else {
-            alert("Wrong credentials!")
+            alert("Wrong credentials!");
         }
     });
 

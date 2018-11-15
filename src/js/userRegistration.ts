@@ -9,7 +9,7 @@ interface IUsers {
 
     name: string;
     email: string;
-    password: string;
+    password: number;
     location:string;
     isAdmin:boolean ;
 
@@ -42,5 +42,6 @@ function addUser():void{
     })
     .catch((error:AxiosError)=>{
         console.log(error)
+       
     });
 }
