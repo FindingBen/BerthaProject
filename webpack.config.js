@@ -12,7 +12,13 @@ module.exports = {
   entry: {
     index: './src/js/index.ts',
     mainPage:'./src/js/MainPage.ts',
-    userRegistration:'./src/js/userRegistration.ts'
+    userRegistration:'./src/js/userRegistration.ts',
+    userPage:'./src/js/UsersPage.ts',
+    login:'./src/index.htm',
+    adminPage:'./src/MainPage.html',
+    signUp:'./src/SignUpPage.htm',
+    usersPage:'./src/Consumer.html',
+    style:'./src/scss/styles.scss'
   },
   module: {
     // rules webpack should follow when watching...
