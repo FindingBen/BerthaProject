@@ -18,7 +18,9 @@ module.exports = {
     adminPage:'./src/MainPage.html',
     signUp:'./src/SignUpPage.htm',
     usersPage:'./src/Consumer.html',
-    style:'./src/scss/styles.scss'
+    style:'./src/scss/styles.scss',
+    addData:'./src/AddData.html',
+    addDataTs:'./src/js/AddData.ts'
   },
   module: {
     // rules webpack should follow when watching...
