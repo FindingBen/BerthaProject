@@ -1993,36 +1993,64 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/axios/index */ "./node_modules/axios/index.js");
 /* harmony import */ var _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0__);
 
-//Here is the list of users we have in database,by this list we are calling users from database
-var userList = [];
-var log = document.getElementById("Logs");
-log.addEventListener("click", Login);
 var user = document.getElementById("Username");
 var pas = document.getElementById("password");
-//As it says when you hoover with your mouse over it,when window loads (something) that is the first thing user sees
-window.onload = function () {
-    var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/user";
+var log = document.getElementById("Logs");
+log.addEventListener("click", Login);
+function Login() {
+    var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/user/login/" + user.value + "/" + pas.value;
     _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.get(uri)
         .then(function (response) {
-        response.data.forEach(function (user) {
-            if (user != null) {
-                userList.push(user);
-            }
-        });
-        console.log(userList);
-    })
-        .catch(function (error) {
-        console.log(error);
+        console.log(response.data);
+        if (response.data !== null) {
+            if (response.data.isAdmin == true)
+                passId('http://localhost:3000/MainPage.htm', response.data.id);
+            else if (response.data.isAdmin == false)
+                window.location.href = 'http://localhost:3000/Consumer.html';
+            else
+                alert("wrong!");
+        }
+        if (response.data === null)
+            alert("Wrong!INPUT SOMTH");
     });
-};
+}
+function passId(url, id) {
+    window.location.href = url + "?id=" + id;
+}
+/*/Here is the list of users we have in database,by this list we are calling users from database
+let userList:Array<IUsers>=[];
+let log:HTMLButtonElement=<HTMLButtonElement>document.getElementById("Logs");
+log.addEventListener("click",Login);
+
+let user: HTMLInputElement = <HTMLInputElement>document.getElementById("Username");
+let pas: HTMLInputElement = <HTMLInputElement>document.getElementById("password");
+//As it says when you hoover with your mouse over it,when window loads (something) that is the first thing user sees
+
+window.onload=()=>{
+    let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/user";
+    axios.get<IUsers[]>(uri)
+        .then(function (response: AxiosResponse<IUsers[]>): void {
+            response.data.forEach((user: IUsers) => {
+                if (user != null) {
+                    userList.push(user);
+                }
+            })
+            console.log(userList);
+        })
+        .catch(function (error: AxiosError) {
+            console.log(error);
+        });
+}
+
 //Logic behind Login
-function Login() {
+function Login(): void {
     //I will work on our push id method so that when user logs in
     //based on ID only his health data will show up
-    var UserId = Number(user.id);
-    var inputUsername = user.value;
-    var inputPassword = pas.value;
-    userList.forEach(function (element) {
+    let UserId:number=Number(user.id);
+    let inputUsername: string = user.value;
+    let inputPassword: string = pas.value;
+    
+    userList.forEach(element => {
         if (inputUsername == element.name && inputPassword == element.password) {
             window.open('MainPage.htm');
         }
@@ -2030,7 +2058,11 @@ function Login() {
             alert("Wrong credentials!");
         }
     });
+
+    
+
 }
+ */ 
 
 
 /***/ })

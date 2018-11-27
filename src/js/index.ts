@@ -9,10 +9,62 @@ interface IUsers {
     name: string;
     email: string;
     password: string;
-
-
+    isAdmin:boolean;
 }
-//Here is the list of users we have in database,by this list we are calling users from database
+
+let user: HTMLInputElement = <HTMLInputElement>document.getElementById("Username");
+let pas: HTMLInputElement = <HTMLInputElement>document.getElementById("password");
+
+
+let log:HTMLButtonElement=<HTMLButtonElement>document.getElementById("Logs");
+log.addEventListener("click",Login);
+
+function Login():void{
+
+    let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/user/login/"+user.value+"/"+pas.value;
+    axios.get(uri)
+    .then(function(response:AxiosResponse):void{
+        console.log(response.data);
+        if(response.data !==null)
+        {
+            if(response.data.isAdmin==true)
+            passId('http://localhost:3000/MainPage.htm',response.data.id)
+            else if(response.data.isAdmin==false)
+            window.location.href='http://localhost:3000/Consumer.html';
+            else
+            alert("wrong!")
+        }
+        if(response.data===null)
+        alert("Wrong!INPUT SOMTH")
+    })
+}
+
+function passId(url:string,id:number):void{
+    window.location.href=url+"?id="+id;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*/Here is the list of users we have in database,by this list we are calling users from database
 let userList:Array<IUsers>=[];
 let log:HTMLButtonElement=<HTMLButtonElement>document.getElementById("Logs");
 log.addEventListener("click",Login);
@@ -57,3 +109,4 @@ function Login(): void {
     
 
 }
+ */
