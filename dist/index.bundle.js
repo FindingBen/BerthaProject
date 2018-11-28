@@ -1997,6 +1997,8 @@ var user = document.getElementById("Username");
 var pas = document.getElementById("password");
 var log = document.getElementById("Logs");
 log.addEventListener("click", Login);
+var UserID;
+localStorage.setItem("key", UserID.toString());
 function Login() {
     var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/user/login/" + user.value + "/" + pas.value;
     _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.get(uri)
@@ -2008,11 +2010,20 @@ function Login() {
             else if (response.data.isAdmin == false)
                 window.location.href = 'http://localhost:3000/Consumer.html';
             else
-                alert("wrong!");
+                alert("Wrong credentials!");
         }
         if (response.data === null)
-            alert("Wrong!INPUT SOMTH");
+            alert("Wrong credentials!");
     });
+}
+function WrongCredentials() {
+    var invalid = document.getElementById("invalid");
+    if (invalid.style.display === "none") {
+        invalid.style.display = "block";
+    }
+    else {
+        invalid.style.display = "none";
+    }
 }
 function passId(url, id) {
     window.location.href = url + "?id=" + id;

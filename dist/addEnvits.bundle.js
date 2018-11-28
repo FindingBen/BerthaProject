@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/AddData.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/AddEnviroData.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1981,10 +1981,10 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./src/js/AddData.ts":
-/*!***************************!*\
-  !*** ./src/js/AddData.ts ***!
-  \***************************/
+/***/ "./src/js/AddEnviroData.ts":
+/*!*********************************!*\
+  !*** ./src/js/AddEnviroData.ts ***!
+  \*********************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1993,23 +1993,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/axios/index */ "./node_modules/axios/index.js");
 /* harmony import */ var _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0__);
 
-var addHealthButton = document.getElementById("createHealthData");
-addHealthButton.addEventListener("click", addHealth);
-function addHealth() {
-    var addBloodPressure = document.getElementById("inputBloodPressure");
-    var addHeartBeat = document.getElementById("inputHeartBeat");
-    var addAge = document.getElementById("inputAge");
-    var addWeight = document.getElementById("inputWeight");
-    var addGender = document.getElementById("inputGender");
-    var addUserId = document.getElementById("inputUserId");
-    var MyBloodPressure = addBloodPressure.value;
-    var MyHeartBeat = addHeartBeat.value;
-    var MyAge = Number(addAge.value);
-    var MyWeight = addWeight.value;
-    var MyGender = addGender.value;
-    var MyUserId = Number(addUserId.value);
-    var URI = "https://birthawebservice20181031094923.azurewebsites.net/api/Health";
-    _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.post(URI, { bloodPressure: MyBloodPressure, heartBeat: MyHeartBeat, age: MyAge, weight: MyWeight, gender: MyGender, userId: MyUserId })
+var addHealthButton = document.getElementById("createEnviroData");
+addHealthButton.addEventListener("click", addEnviro);
+function addEnviro() {
+    var addOxygen = document.getElementById("inputOxygen");
+    var addNitrogen = document.getElementById("inputNitrogen");
+    var addCarbonDioxide = document.getElementById("inputCarbonDioxide");
+    var addMethanet = document.getElementById("inputMethane");
+    var addHumidity = document.getElementById("inputHumidity");
+    var addTemperature = document.getElementById("inputTemperatur");
+    var addUserID = document.getElementById("inputUserId");
+    var MyOxygen = Number(addOxygen.value);
+    var MyNitrogen = Number(addNitrogen.value);
+    var MyCarbonDioxide = Number(addCarbonDioxide.value);
+    var MyMethan = Number(addMethanet.value);
+    var MyHumidity = Number(addHumidity.value);
+    var MyTemperature = Number(addTemperature.value);
+    var MyUserId = Number(addUserID.value);
+    var URI = "https://birthawebservice20181031094923.azurewebsites.net/api/Environment";
+    _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.post(URI, { oxygen: MyOxygen, nitrogen: MyNitrogen, carbonDioxide: MyCarbonDioxide, methane: MyMethan, humidity: MyHumidity, temperature: MyTemperature, userId: MyUserId })
         .then(function (response) {
         console.log(response.status + " " + response.statusText);
     })
@@ -2022,4 +2024,4 @@ function addHealth() {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=addDataTs.bundle.js.map
+//# sourceMappingURL=addEnvits.bundle.js.map

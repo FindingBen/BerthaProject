@@ -18,7 +18,8 @@ let pas: HTMLInputElement = <HTMLInputElement>document.getElementById("password"
 
 let log:HTMLButtonElement=<HTMLButtonElement>document.getElementById("Logs");
 log.addEventListener("click",Login);
-
+let UserID:number;
+localStorage.setItem("key", UserID.toString());
 function Login():void{
 
     let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/user/login/"+user.value+"/"+pas.value;
@@ -32,11 +33,22 @@ function Login():void{
             else if(response.data.isAdmin==false)
             window.location.href='http://localhost:3000/Consumer.html';
             else
-            alert("wrong!")
+            alert("Wrong credentials!");
         }
         if(response.data===null)
-        alert("Wrong!INPUT SOMTH")
+        alert("Wrong credentials!");
     })
+    
+}
+
+function WrongCredentials():void{
+    var invalid= document.getElementById("invalid");
+    if (invalid.style.display === "none") {
+        invalid.style.display = "block";
+        
+    } else {
+        invalid.style.display = "none";
+    }
 }
 
 function passId(url:string,id:number):void{

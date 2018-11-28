@@ -20,7 +20,9 @@ module.exports = {
     usersPage:'./src/Consumer.html',
     style:'./src/scss/styles.scss',
     addData:'./src/AddData.html',
-    addDataTs:'./src/js/AddData.ts'
+    addDataTs:'./src/js/AddData.ts',
+    addEnvi:'./src/AddEnviro.html',
+    addEnvits:'./src/js/AddEnviroData.ts'
   },
   module: {
     // rules webpack should follow when watching...
