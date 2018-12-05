@@ -24,7 +24,9 @@ module.exports = {
     addEnvi:'./src/AddEnviro.html',
     addEnvits:'./src/js/AddEnviroData.ts',
     charthtml:'./src/charts.html',
-    chartts:'./src/js/Charts.ts'
+    chartts:'./src/js/Charts.ts',
+    about:'./src/About.html',
+    aboutts:'./src/js/About.ts'
   },
   module: {
     // rules webpack should follow when watching...
