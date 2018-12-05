@@ -81,21 +81,22 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/MainPage.html");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/Charts.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/MainPage.html":
-/*!***************************!*\
-  !*** ./src/MainPage.html ***!
-  \***************************/
+/***/ "./src/js/Charts.ts":
+/*!**************************!*\
+  !*** ./src/js/Charts.ts ***!
+  \**************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/file-loader/dist/cjs.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\Benii\\Desktop\\BerthaProject\\src\\MainPage.html'");
+console.log("FOR PATJO");
+
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=adminPage.bundle.js.map
+//# sourceMappingURL=chartts.bundle.js.map

@@ -2006,24 +2006,16 @@ function Login() {
         console.log(response.data);
         if (response.data !== null) {
             if (response.data.isAdmin == true)
-                passId('http://localhost:3000/MainPage.htm', response.data.id);
+                passId('http://localhost:3000/MainPage.htm', response.data.UserID);
             else if (response.data.isAdmin == false)
-                window.location.href = 'http://localhost:3000/Consumer.html';
+                passId('http://localhost:3000/Consumer.html', response.data.UserID);
             else
                 alert("Wrong credentials!");
+            console.log(UserID);
         }
         if (response.data === null)
             alert("Wrong credentials!");
     });
-}
-function WrongCredentials() {
-    var invalid = document.getElementById("invalid");
-    if (invalid.style.display === "none") {
-        invalid.style.display = "block";
-    }
-    else {
-        invalid.style.display = "none";
-    }
 }
 function passId(url, id) {
     window.location.href = url + "?id=" + id;

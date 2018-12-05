@@ -1996,20 +1996,25 @@ __webpack_require__.r(__webpack_exports__);
 var LoggedInUserID;
 var getStoredUserID = localStorage.getItem("key");
 LoggedInUserID = parseInt(getStoredUserID);
-//let healthButton:HTMLButtonElement=<HTMLButtonElement>document.getElementById("getAllButton");
-//healthButton.addEventListener("click",getHealth);
+var healthButton = document.getElementById("getAllButton");
+healthButton.addEventListener("click", getHealth);
 var healthElement = document.getElementById("UserHealth");
 //let myFrame:HTMLFrameElement=<HTMLFrameElement>document.getElementById("framOF");
 var myHealthData = [];
-var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/Health/" + LoggedInUserID;
-_node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.get(uri)
-    .then(function (response) {
-    // Works when compiled
-    response.data.forEach(function (element) {
-        myHealthData.push(element.heartRate);
+function getHealth() {
+    var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/Health/90";
+    _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.get(uri)
+        .then(function (response) {
+        console.log(response.data);
+        var result = "";
+        result += "<p>" + "  Blood pressure:  " + response.data.bloodPressure + "<br> Gender: " + response.data.gender + "<br> Heart Beat: " + response.data.heartBeat + "<br> Weight: " + response.data.weight + "</p>";
+        healthElement.innerHTML = result;
+        console.log(result);
+    })
+        .catch(function (error) {
+        console.log(error);
     });
-    healthElement.innerHTML = response.data.myHealthData;
-});
+}
 /*function getHealth():void{
     var regex=/[?&]([^=#]+)=([^&#]*)/g,
     url=window.location.href;

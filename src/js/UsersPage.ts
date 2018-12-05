@@ -7,16 +7,6 @@ from "../../node_modules/axios/index";
 import * as $ from "../../node_modules/jquery/dist/jquery";
 
 
-interface Ihealth {
-
-    id: number;
-    bloodPressure: number;
-    heartBeat: number;
-    age: number;
-    weight: number;
-    gender: string;
-    userId: number;
-}
 
 let LoggedInUserID:any;
 
@@ -25,24 +15,30 @@ let LoggedInUserID:any;
 var getStoredUserID = localStorage.getItem("key");
  LoggedInUserID = parseInt(getStoredUserID);
 
-//let healthButton:HTMLButtonElement=<HTMLButtonElement>document.getElementById("getAllButton");
-//healthButton.addEventListener("click",getHealth);
+let healthButton:HTMLButtonElement=<HTMLButtonElement>document.getElementById("getAllButton");
+healthButton.addEventListener("click",getHealth);
 
-let healthElement:HTMLDivElement=<HTMLDivElement>document.getElementById("UserHealth");
+let healthElement:HTMLOListElement=<HTMLOListElement>document.getElementById("UserHealth");
 //let myFrame:HTMLFrameElement=<HTMLFrameElement>document.getElementById("framOF");
 
 let myHealthData:any = [];
-
-let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/Health/"+LoggedInUserID;
+function getHealth():void{
+let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/Health/90";
 axios.get(uri)
-    .then(function(response) {
-      // Works when compiled
-      response.data.forEach((element:any) => {
-        myHealthData.push(element.heartRate);
-      });
-      healthElement.innerHTML = response.data.myHealthData;
-    })
+.then(function (response: AxiosResponse): void {
+    console.log(response.data);
+    let result: string = "";
+    result+="<p>" + "  Blood pressure:  " +response.data.bloodPressure+ "<br> Gender: " + response.data.gender+ "<br> Heart Beat: " + response.data.heartBeat + "<br> Weight: " + response.data.weight +  "</p>";
+    healthElement.innerHTML=result;
+    console.log(result);
+})
+.catch((error:AxiosError)=>{
+    console.log(error);
 
+})
+
+
+}
 /*function getHealth():void{
     var regex=/[?&]([^=#]+)=([^&#]*)/g,
     url=window.location.href;

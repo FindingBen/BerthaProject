@@ -4,13 +4,7 @@ import axios, {
 }
     from "../../node_modules/axios/index";
 
-interface IUsers {
-    id:number;
-    name: string;
-    email: string;
-    password: string;
-    isAdmin:boolean;
-}
+
 
 let user: HTMLInputElement = <HTMLInputElement>document.getElementById("Username");
 let pas: HTMLInputElement = <HTMLInputElement>document.getElementById("password");
@@ -29,11 +23,12 @@ function Login():void{
         if(response.data !==null)
         {
             if(response.data.isAdmin==true)
-            passId('http://localhost:3000/MainPage.htm',response.data.id)
+            passId('http://localhost:3000/MainPage.htm',response.data.UserID)
             else if(response.data.isAdmin==false)
-            window.location.href='http://localhost:3000/Consumer.html';
+            passId('http://localhost:3000/Consumer.html',response.data.UserID)
             else
             alert("Wrong credentials!");
+            console.log(UserID);
         }
         if(response.data===null)
         alert("Wrong credentials!");
@@ -41,15 +36,7 @@ function Login():void{
     
 }
 
-function WrongCredentials():void{
-    var invalid= document.getElementById("invalid");
-    if (invalid.style.display === "none") {
-        invalid.style.display = "block";
-        
-    } else {
-        invalid.style.display = "none";
-    }
-}
+
 
 function passId(url:string,id:number):void{
     window.location.href=url+"?id="+id;

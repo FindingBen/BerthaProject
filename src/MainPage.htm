@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="bundle.css">
+    <script  src="../Jquery/jquery.multiselect.js"></script>
+<script  src="../Jquery/prettify.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Heebo|Hind+Vadodara|Julius+Sans+One|Jura|M+PLUS+1p" rel="stylesheet">
+    <title>Main Page</title>
+    
+</head>
+<body>
+   <div>
+       <h1>Here we will proccess our Data..</h1>
+       
+       
+       <button id="getData" > Get all health data </button>
+       <ol start="1"  style='color: white' id="HealthList"> 
+       </ol>
+
+       <div>
+       <h2>Id input </h2>
+       <button id="getDataById" > Get data by user id </button>
+       <input id="idInput" placeholder="ID" />
+       <div>
+        <ol style='color:white' id="ShowHealthById"></ol>
+        </div>
+        <div>
+
+        <h2>Environment Data </h2>
+
+        <button id="getEnviroData" > Get all Environment data </button>
+        <ol start="1"  style='color: white' id="EnviroList"> 
+        </ol>
+    </div>
+   </div>
+   <script src="mainPage.bundle.js"></script>
+</body>
+</html>
