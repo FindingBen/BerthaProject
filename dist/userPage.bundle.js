@@ -1996,9 +1996,9 @@ __webpack_require__.r(__webpack_exports__);
 var LoggedInUserID;
 var getStoredUserID = localStorage.getItem("key");
 LoggedInUserID = parseInt(getStoredUserID);
-var healthButton = document.getElementById("getAllButton");
+var healthButton = document.getElementById("getYourHealth");
 healthButton.addEventListener("click", getHealth);
-var healthElement = document.getElementById("UserHealth");
+var healthElement = document.getElementById("HealthData");
 //let myFrame:HTMLFrameElement=<HTMLFrameElement>document.getElementById("framOF");
 var myHealthData = [];
 function getHealth() {

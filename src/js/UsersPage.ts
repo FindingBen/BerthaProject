@@ -15,10 +15,10 @@ let LoggedInUserID:any;
 var getStoredUserID = localStorage.getItem("key");
  LoggedInUserID = parseInt(getStoredUserID);
 
-let healthButton:HTMLButtonElement=<HTMLButtonElement>document.getElementById("getAllButton");
+let healthButton:HTMLButtonElement=<HTMLButtonElement>document.getElementById("getYourHealth");
 healthButton.addEventListener("click",getHealth);
 
-let healthElement:HTMLOListElement=<HTMLOListElement>document.getElementById("UserHealth");
+let healthElement:HTMLOListElement=<HTMLOListElement>document.getElementById("HealthData");
 //let myFrame:HTMLFrameElement=<HTMLFrameElement>document.getElementById("framOF");
 
 let myHealthData:any = [];
