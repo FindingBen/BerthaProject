@@ -4,7 +4,14 @@ import axios, {
 }
     from "../../node_modules/axios/index";
 
+interface IUsers{
 
+    id:number;
+    name:string;
+    email:string;
+    password:string;
+
+}
 
 let user: HTMLInputElement = <HTMLInputElement>document.getElementById("Username");
 let pas: HTMLInputElement = <HTMLInputElement>document.getElementById("password");

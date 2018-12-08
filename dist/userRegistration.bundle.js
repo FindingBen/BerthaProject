@@ -2000,15 +2000,13 @@ function addUser() {
     var addEmail = document.getElementById("inputEmail");
     var addName = document.getElementById("inputName");
     var addPass = document.getElementById("inputPassword");
-    var addAdmin = document.getElementById("inputCheck");
     var addLocation = document.getElementById("inputLocation");
     var MyEmail = addEmail.value;
     var MyName = addName.value;
     var MyPass = Number(addPass.value);
-    var MyAdmin = Boolean(addAdmin.checked);
     var MyLocation = addLocation.value;
     var URI = "https://birthawebservice20181031094923.azurewebsites.net/api/user";
-    _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.post(URI, { name: MyName, email: MyEmail, password: MyPass, isAdmin: MyAdmin, location: MyLocation })
+    _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.post(URI, { name: MyName, email: MyEmail, password: MyPass, location: MyLocation })
         .then(function (response) {
         console.log(response.status + " " + response.statusText);
     })

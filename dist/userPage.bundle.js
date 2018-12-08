@@ -2002,12 +2002,12 @@ var healthElement = document.getElementById("HealthData");
 //let myFrame:HTMLFrameElement=<HTMLFrameElement>document.getElementById("framOF");
 var myHealthData = [];
 function getHealth() {
-    var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/Health/90";
+    var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/Health";
     _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.get(uri)
         .then(function (response) {
         console.log(response.data);
         var result = "";
-        result += "<p>" + "  Blood pressure:  " + response.data.bloodPressure + "<br> Gender: " + response.data.gender + "<br> Heart Beat: " + response.data.heartBeat + "<br> Weight: " + response.data.weight + "</p>";
+        result += "<p>" + "  Blood pressure:  " + response.data.bloodPressure + "<br> Age: " + response.data.Age + "<br> Heart Beat: " + response.data.heartBeat + "<br> Weight: " + response.data.weight + "<br> Date of uploading: " + response.data.Date + "</p>";
         healthElement.innerHTML = result;
         console.log(result);
     })

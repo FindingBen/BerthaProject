@@ -23,12 +23,12 @@ let healthElement:HTMLOListElement=<HTMLOListElement>document.getElementById("He
 
 let myHealthData:any = [];
 function getHealth():void{
-let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/Health/90";
+let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/Health";
 axios.get(uri)
 .then(function (response: AxiosResponse): void {
     console.log(response.data);
     let result: string = "";
-    result+="<p>" + "  Blood pressure:  " +response.data.bloodPressure+ "<br> Gender: " + response.data.gender+ "<br> Heart Beat: " + response.data.heartBeat + "<br> Weight: " + response.data.weight +  "</p>";
+    result+="<p>" + "  Blood pressure:  " +response.data.bloodPressure+ "<br> Age: " + response.data.Age+ "<br> Heart Beat: " + response.data.heartBeat + "<br> Weight: " + response.data.weight + "<br> Date of uploading: " + response.data.Date +  "</p>";
     healthElement.innerHTML=result;
     console.log(result);
 })
