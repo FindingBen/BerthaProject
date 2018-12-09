@@ -2005,10 +2005,14 @@ function Login() {
         .then(function (response) {
         console.log(response.data);
         if (response.data !== null) {
+            UserID = response.data.id;
+            localStorage.setItem("key", UserID.toString());
             if (response.data.isAdmin == true)
-                passId('http://localhost:3000/MainPage.htm', response.data.UserID);
+                window.location.href = 'MainPage.htm';
+            // passId('http://localhost:3000/MainPage.htm',response.data.UserID)
             else if (response.data.isAdmin == false)
-                passId('http://localhost:3000/Consumer.html', response.data.UserID);
+                window.location.href = 'Consumer.html';
+            // passId('http://localhost:3000/Consumer.html',response.data.UserID)
             else
                 alert("Wrong credentials!");
             console.log(UserID);
@@ -2017,9 +2021,9 @@ function Login() {
             alert("Wrong credentials!");
     });
 }
-function passId(url, id) {
-    window.location.href = url + "?id=" + id;
-}
+// function passId(url:string,id:number):void{
+//     window.location.href=url+"?id="+id;
+// }
 /*/Here is the list of users we have in database,by this list we are calling users from database
 let userList:Array<IUsers>=[];
 let log:HTMLButtonElement=<HTMLButtonElement>document.getElementById("Logs");

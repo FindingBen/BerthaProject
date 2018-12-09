@@ -6,7 +6,15 @@ from "../../node_modules/axios/index";
 
 import * as $ from "../../node_modules/jquery/dist/jquery";
 
+interface IHelath{
+bloodPressure:number;
+age:number;
+heartBeat:number;
+userId:number;
+weight:number;
+Date:Date;
 
+}
 
 let LoggedInUserID:any;
 
@@ -23,12 +31,17 @@ let healthElement:HTMLOListElement=<HTMLOListElement>document.getElementById("He
 
 let myHealthData:any = [];
 function getHealth():void{
-let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/Health";
-axios.get(uri)
-.then(function (response: AxiosResponse): void {
-    console.log(response.data);
+let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/Health/UsersDataWithSpecificId/"+LoggedInUserID;
+axios.get<IHelath[]>(uri)
+.then(function (response: AxiosResponse<IHelath[]>): void {
+    console.log(response);
     let result: string = "";
-    result+="<p>" + "  Blood pressure:  " +response.data.bloodPressure+ "<br> Age: " + response.data.Age+ "<br> Heart Beat: " + response.data.heartBeat + "<br> Weight: " + response.data.weight + "<br> Date of uploading: " + response.data.Date +  "</p>";
+    response.data.forEach((health:IHelath)=>{
+        result+="<p>" + "  Blood pressure:  " +health.bloodPressure+
+        "<br> Age: " + health.age+ "<br> Heart Beat: " + health.heartBeat +
+         "<br> UserID: " + health.userId +  "<br> Weight: " + health.weight + 
+         "<br> Date of uploading: " + health.Date +  "</p>";
+    })
     healthElement.innerHTML=result;
     console.log(result);
 })
