@@ -12,7 +12,7 @@ age:number;
 heartBeat:number;
 userId:number;
 weight:number;
-Date:Date;
+dateTime:Date;
 
 }
 
@@ -40,7 +40,7 @@ axios.get<IHelath[]>(uri)
         result+="<p>" + "  Blood pressure:  " +health.bloodPressure+
         "<br> Age: " + health.age+ "<br> Heart Beat: " + health.heartBeat +
          "<br> UserID: " + health.userId +  "<br> Weight: " + health.weight + 
-         "<br> Date of uploading: " + health.Date +  "</p>";
+         "<br> Date of uploading: " + health.dateTime +  "</p>";
     })
     healthElement.innerHTML=result;
     console.log(result);
