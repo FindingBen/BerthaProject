@@ -26,7 +26,8 @@ module.exports = {
     charthtml:'./src/charts.html',
     chartts:'./src/js/Charts.ts',
     about:'./src/About.html',
-    aboutts:'./src/js/About.ts'
+    aboutts:'./src/js/About.ts',
+    css:'./dist/css'
   },
   module: {
     // rules webpack should follow when watching...

@@ -1996,18 +1996,23 @@ __webpack_require__.r(__webpack_exports__);
 var LoggedInUserID;
 var getStoredUserID = localStorage.getItem("key");
 LoggedInUserID = parseInt(getStoredUserID);
-var healthButton = document.getElementById("getAllButton");
+var healthButton = document.getElementById("getYourHealth");
 healthButton.addEventListener("click", getHealth);
-var healthElement = document.getElementById("UserHealth");
+var healthElement = document.getElementById("HealthData");
 //let myFrame:HTMLFrameElement=<HTMLFrameElement>document.getElementById("framOF");
 var myHealthData = [];
 function getHealth() {
-    var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/Health/90";
+    var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/Health/UsersDataWithSpecificId/" + LoggedInUserID;
     _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.get(uri)
         .then(function (response) {
-        console.log(response.data);
+        console.log(response);
         var result = "";
-        result += "<p>" + "  Blood pressure:  " + response.data.bloodPressure + "<br> Gender: " + response.data.gender + "<br> Heart Beat: " + response.data.heartBeat + "<br> Weight: " + response.data.weight + "</p>";
+        response.data.forEach(function (health) {
+            result += "<p>" + "  Blood pressure:  " + health.bloodPressure +
+                "<br> Age: " + health.age + "<br> Heart Beat: " + health.heartBeat +
+                "<br> UserID: " + health.userId + "<br> Weight: " + health.weight +
+                "<br> Date of uploading: " + health.dateTime + "</p>";
+        });
         healthElement.innerHTML = result;
         console.log(result);
     })

@@ -6,7 +6,15 @@ from "../../node_modules/axios/index";
 
 import * as $ from "../../node_modules/jquery/dist/jquery";
 
+interface IHelath{
+bloodPressure:number;
+age:number;
+heartBeat:number;
+userId:number;
+weight:number;
+dateTime:Date;
 
+}
 
 let LoggedInUserID:any;
 
@@ -15,20 +23,25 @@ let LoggedInUserID:any;
 var getStoredUserID = localStorage.getItem("key");
  LoggedInUserID = parseInt(getStoredUserID);
 
-let healthButton:HTMLButtonElement=<HTMLButtonElement>document.getElementById("getAllButton");
+let healthButton:HTMLButtonElement=<HTMLButtonElement>document.getElementById("getYourHealth");
 healthButton.addEventListener("click",getHealth);
 
-let healthElement:HTMLOListElement=<HTMLOListElement>document.getElementById("UserHealth");
+let healthElement:HTMLOListElement=<HTMLOListElement>document.getElementById("HealthData");
 //let myFrame:HTMLFrameElement=<HTMLFrameElement>document.getElementById("framOF");
 
 let myHealthData:any = [];
 function getHealth():void{
-let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/Health/90";
-axios.get(uri)
-.then(function (response: AxiosResponse): void {
-    console.log(response.data);
+let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/Health/UsersDataWithSpecificId/"+LoggedInUserID;
+axios.get<IHelath[]>(uri)
+.then(function (response: AxiosResponse<IHelath[]>): void {
+    console.log(response);
     let result: string = "";
-    result+="<p>" + "  Blood pressure:  " +response.data.bloodPressure+ "<br> Gender: " + response.data.gender+ "<br> Heart Beat: " + response.data.heartBeat + "<br> Weight: " + response.data.weight +  "</p>";
+    response.data.forEach((health:IHelath)=>{
+        result+="<p>" + "  Blood pressure:  " +health.bloodPressure+
+        "<br> Age: " + health.age+ "<br> Heart Beat: " + health.heartBeat +
+         "<br> UserID: " + health.userId +  "<br> Weight: " + health.weight + 
+         "<br> Date of uploading: " + health.dateTime +  "</p>";
+    })
     healthElement.innerHTML=result;
     console.log(result);
 })
