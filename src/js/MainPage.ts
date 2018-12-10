@@ -11,8 +11,9 @@ interface Ihealth {
     heartBeat: number;
     age: number;
     weight: number;
-    gender: string;
+    dateTime:Date;
     userId: number;
+    gender:string;
 }
 interface IEnvironment{
 id:number;
@@ -59,20 +60,25 @@ function getById():void{
     let idElement:string=IdInputElement.value;
     
     let uri: string = "https://birthawebservice20181031094923.azurewebsites.net/api/health/" + idElement;
-     axios.get(uri)
-        .then(function (response: AxiosResponse): void {
-            console.log(response.data);
+     axios.get<Ihealth[]>(uri)
+        .then(function (response: AxiosResponse<Ihealth[]>): void {
+            console.log(response);
             let result: string = "";
-            result+="<p>" + "  Blood pressure:  " +response.data.bloodPressure+ "<br> Gender: " + response.data.gender+ "<br> Heart Beat: " + response.data.heartBeat + "<br> Weight: " + response.data.weight +  "</p>";
-            healthById.innerHTML=result;
-            console.log(result);
+            response.data.forEach((health: Ihealth) =>{
+                result+="<p>" + "  Blood pressure:  " +health.bloodPressure+ "<br> Date of uploading: " + health.dateTime+
+                 "<br> Heart Beat: " + health.heartBeat +
+                 "<br> Age: " + health.age +
+                 "<br> Weight: " + health.weight +  "</p>";
+                healthById.innerHTML=result;
+                console.log(result);
+            }
+            )
         })
+    
         .catch((error:AxiosError)=>{
             console.log(error);
         
         })
-
-
 }
 
 

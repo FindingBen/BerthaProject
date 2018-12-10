@@ -1,158 +1,320 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Consumer</title>
-        <script  src="../Jquery/jquery.multiselect.js"></script>
-        <script  src="../Jquery/prettify.js"></script>          
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Heebo|Hind+Vadodara|Julius+Sans+One|Jura|M+PLUS+1p" rel="stylesheet"> 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">   
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        
-        <style>
-      body{
-        background-image: url("/assets/annapurna_nepal_gimalai_gory_nebo_103597_1920x1080.jpg");
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Consumer</title>
+    <link rel="stylesheet" type="text/css" href="bundle.css">
+    <script src="../Jquery/jquery.multiselect.js"></script>
+    <script src="../Jquery/prettify.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Heebo|Hind+Vadodara|Julius+Sans+One|Jura|M+PLUS+1p" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+    <style>
+      body {
+        /* background-image: url("/assets/d2350155f30ad946907bcb7a730cfeca.jpg"); */
         background-attachment: fixed;
+        background-color: lightgray;
       }
-
-
+    
+    .card-text{
+      font-size: 20px;
       
-  .my-container {
-     border: 3px solid green; 
-    padding-block-start: 50px;
-        height: 100%;
-          }
+    }
+    
+      .row1 {
+        background-image: url("assets/thumb-1920-746711.jpg");
+        z-index: 1030;
+        top:0;
+        max-width: 1950px;
+        height: 350px;
+      }
+    
+      .row2 {
+        height: 550px
+      }
+    
+      .profimg {
+        border: 4px solid white;
+        width: 250px;
+        height: 250px;
+        border-radius: 1%;
+        background-size: cover;
+        background-image: url("assets/avatar.png");
+      }
+    
+    .username1{
+      text-shadow: 2px 2px 4px #000000;
+    }
+      .row1col2 {
+        color: #fff;
+        border-color: #6c757d;
+        border-radius: 10px;
+        height: auto;
+        font-size: 35px;
+      }
+.chart{
+  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-left: 80px;
+}
 
-      .my-row{
-         border: 3px solid red; 
-               height: 550px;
-               
+      .row2col1{
+        border: 2px solid white;
+      }  
+      
+    .row2col2{
+      border: 2px solid white;
+    }
+
+    .row2col3{
+
+    }
+      .bbtn {
+        width: 100px;
+        height: 100px;
+      }
+    .bp{
+      font-size: 14px;
+      color: white;
+    }
+    .bp2{
+      font-size: 11px;
+      color: white;
+    }
+
+    .card-body{
+            text-align: center;
+    }
+      .my-container {
+        /* border: 3px solid green; */
+        margin-top: -20px;
+        top:0;
+        
+      }
+    
+      .my-row {
+        /* border: 3px solid red;
+     */  
+     border: 1px solid white;
+      }
+    
+      .my-col {
+        /* border: 3px dotted blue; */
+        vertical-align: bottom;
+    
+        
       }
 
-    .my-col{
-       border: 3px dotted blue;  
-    }
-  </style> 
-</head>
+      .hlist{
+        text-align: left;
+        display: table-row;
+      }
+
+      .ulist{
+        text-align: left;
+        display: table-row;
+      }
+    </style>
+    </head>
+    </head>
+
 <body>
-      <div class="flex-container my-container">
 
 
-            
-        <div class="row my-row fixed-top " style="height:70px" >
-          
-          <div class="col  my-col ">
-              <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color:rgba(0,0,0,0.4)">
-                  <a class="navbar-brand"  href="MainPage.htm"><img width="100" src="/assets/coollogo_com-14127294.png"> </a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                          <span class="navbar-toggler-icon"></span>
-                        </button>
-                
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                      <li class="nav-item active">
-                        <a  class="btn btn-secondary active" href="Consumer.html">
-                          <img  src="/assets/icons8-home-page-24.png" width="24" >
-                          HOME
-                             <span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="btn btn-secondary active" href="charts.html">
-                              <img src="/assets/icons8-combo-chart-30.png" width="24" >
-                           CHARTS
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                              <a class="btn btn-secondary active" href="About.html">
-                                    <img src="/assets/icons8-about-30.png" width="24" >
-                                 ABOUT US
-                              </a>
-                            </li>
-                      <li class="nav-item dropdown">
-                        <a class="btn btn-secondary active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <img src="/assets/icons8-map-30.png" width="24" >
-                          MAPS
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">Roskilde</a>
-                          <a class="dropdown-item" href="#">Copenhagen</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Aarhus</a>
-                        </div>
-                      </li>
-                    </ul>
-          
-          
-                    <form class="form-inline my-2 my-lg-0">
-                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                      <button class="btn btn-outline my-2 my-sm-0" type="submit">Search</button>
-          <ul class="navbar-nav mr-auto">
-                  <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle" width="40" src="http://www.legobatman.com/assets/media/global/header/batwink-loop.gif">
-                            Benjamin Agic
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Edit Profile</a>
-                            <a class="dropdown-item" href="#">History</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="index.htm">Log out</a>
-                          </div>
-                        </li>
-          </ul>
-                      
-                    </form>
-                  </div>
-                </nav>
-          </div>
-          
+
+
+  <div class="flex-container my-container">
+
+
+
+
+
+
+    <div class="row my-row row1 ">
+      <div class="col-3 my-col d-flex align-items-end ">
+
+
+        <div class="profimg ml-auto p-2"></div>
       </div>
+
+        <div class="col-9  my-col d-flex align-items-end ">
+          <div class="row1col2">
+            <!-- <span class="username1" id="spanName"></span> -->
+          </div>
+        </div>
+      
+    </div>
+
+
+    <div class="row  my-row row2">
+      <div class="col-3 my-col row2col1 d-flex justify-content-center">
+       <!-- <button id="getYourHealth"></button> -->
+       <!-- <button id="getYourUser"></button> -->
+        <div class="card bg-light mb-3 d-flex align-self-center" style="max-width: 400px;">
+          <div class="card-header"><b>Personal information</b></div>
+          <div class="card-body">
+            <h3 class="card-title"><span id="spanName"></span></h3>
+          </br>
+        </br>
+              <div class="card-text">
+
+              <ul class="hlist" id="healthList"></ul>
+              <ul class="ulist" id="userList"></ul>
+              
+              </div> 
+              
+          
+             
+            
+             <!-- <div class="card-text" id="cardlocation"><b></b></div> 
+            
+             <div class="card-text" id="cardgender"><b></b></div> 
+
+             <div class="card-text" id="cardage"><b></b></div> 
+
+             <div class="card-text" id="carddate"><b></b></div>  -->
+             
+            </br>
+          </br>
+            <p class="card-text"><b>We appreciate your help!</b></p>
+           
+          </div>
+        </div>
+
+
 
         
-              <div class="row my-row ">
-                  <div class="col  my-col">
-                      <button id="getYourHealth">View Health Data</button>
-              <ol start="1" style='color: white' id="HealthData">
-              </ol>
-                  </div>
-                  <div class="col  my-col">
-                      
-                  </div>
-              </div>
 
-              
+      </div>
+      <div class="col-9 my-col row2col2">
+        <div class="row my-row row2">
+          <div class="col-9 my-col d-flex justify-content-center chart">
+              <canvas id="myChart1" class="align-self-center" style="background:white">
+                </canvas>
 
-              <div class="row  my-row">
-                <div class="col my-col">
-                    
-                </div>
-                <div class="col my-col">
-                    
-                </div>
             </div>
-
-
-            <div class="row my-row" style="height:50px">
-              <div class="col  my-col">
-                  <!-- Footer -->
-                      <footer >
-                        <div class="footer-copyright text-center py-3" style="color:white"> © 2018 Copyright: 
-                            <a href="MainPage.htm" style="color: aqua">  <b> Bertha.dk<b></a>
-                        </div>
-                        <!-- Copyright -->
-
-                      </footer>
-                      <!-- Footer -->   
+            <div class="col-3 my-col row2col3 d-flex flex-column justify-content-center ">
+                
+                <button type="button" class="btn bbtn btn-warning align-self-center">
+                <img width="70px" src="assets/icons8-drop-of-blood-90.png"></br>
+                <p class="bp2"> <b>Blood Preasure</b></p>
+                </button>
+              </br>
+                <button  type="button" class="btn bbtn btn-danger align-self-center">
+                    <img width="70px" src="assets/icons8-heart-96.png"></br> 
+                    <p class="bp"> <b> Heartbeat</b></p> </button>
+                
+                </br>
+                <button  type="button" class="btn bbtn btn-success align-self-center">
+                    <img width="70px" src="assets/icons8-scale-90.png"></br> 
+                    <p class="bp"> <b> Weight</b></p> </button>
               </div>
-              
-          </div>
+            </div>
+      </div>
+    </div>
+
+
+
+      <div class="row my-row" style="height:50px">
+        <div class="col  my-col">
+          <!-- Footer -->
+          <footer>
+            <div class="footer-copyright text-center py-3" style="color:black"> © 2018 Copyright:
+              <a href="MainPage.htm" style="color: #6ab04c"> <b> Bertha.dk<b></a>
+            </div>
+            <!-- Copyright -->
+
+          </footer>
+          <!-- Footer -->
+        </div>
 
       </div>
 
 
-<script src="userPage.bundle.js" ></script>
+
+
+      <div class="fixed-top " style="height:70px">
+
+        <div class="col  my-col ">
+          <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color:rgba(0,0,0,0.4)">
+            <a class="navbar-brand" href="MainPage.htm"><img width="100" src="/assets/coollogo_com-14127294.png"> </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="btn btn-secondary active" href="Consumer.html">
+                    <img src="/assets/icons8-home-page-24.png" width="24">
+                    HOME
+                    <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="btn btn-secondary active" href="charts.html">
+                    <img src="/assets/icons8-combo-chart-30.png" width="24">
+                    CHARTS
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="btn btn-secondary active" href="About.html">
+                    <img src="/assets/icons8-about-30.png" width="24">
+                    ABOUT US
+                  </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="btn btn-secondary active dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="/assets/icons8-map-30.png" width="24">
+                    MAPS
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Roskilde</a>
+                    <a class="dropdown-item" href="#">Copenhagen</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Aarhus</a>
+                  </div>
+                </li>
+              </ul>
+
+
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline my-2 my-sm-0" type="submit">Search</button>
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      <img class="rounded-circle" width="40" src="assets/avatar.png">
+                      Benjamin Laslo
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">Edit Profile</a>
+                      <a class="dropdown-item" href="#">History</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="index.htm">Log out</a>
+                    </div>
+                  </li>
+                </ul>
+
+              </form>
+            </div>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="userPage.bundle.js"></script>
+    <script src="chartts.bundle.js" ></script>
+   
 </body>
+
 </html>

@@ -2022,11 +2022,16 @@ function getById() {
     var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/health/" + idElement;
     _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.get(uri)
         .then(function (response) {
-        console.log(response.data);
+        console.log(response);
         var result = "";
-        result += "<p>" + "  Blood pressure:  " + response.data.bloodPressure + "<br> Gender: " + response.data.gender + "<br> Heart Beat: " + response.data.heartBeat + "<br> Weight: " + response.data.weight + "</p>";
-        healthById.innerHTML = result;
-        console.log(result);
+        response.data.forEach(function (health) {
+            result += "<p>" + "  Blood pressure:  " + health.bloodPressure + "<br> Date of uploading: " + health.dateTime +
+                "<br> Heart Beat: " + health.heartBeat +
+                "<br> Age: " + health.age +
+                "<br> Weight: " + health.weight + "</p>";
+            healthById.innerHTML = result;
+            console.log(result);
+        });
     })
         .catch(function (error) {
         console.log(error);

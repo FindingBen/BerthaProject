@@ -16,6 +16,16 @@ dateTime:Date;
 
 }
 
+interface IUsers{
+
+    id:number;
+    name:string;
+    email:string;
+    password:string;
+    location:string;
+
+}
+
 let LoggedInUserID:any;
 
 
@@ -23,13 +33,20 @@ let LoggedInUserID:any;
 var getStoredUserID = localStorage.getItem("key");
  LoggedInUserID = parseInt(getStoredUserID);
 
-let healthButton:HTMLButtonElement=<HTMLButtonElement>document.getElementById("getYourHealth");
-healthButton.addEventListener("click",getHealth);
+// let healthButton:HTMLButtonElement=<HTMLButtonElement>document.getElementById("getYourHealth");
+// healthButton.addEventListener("click",getHealth);
+//  let userButton:HTMLButtonElement=<HTMLButtonElement>document.getElementById("getYourUser");
+//  userButton.addEventListener("click",getUserData);
 
-let healthElement:HTMLOListElement=<HTMLOListElement>document.getElementById("HealthData");
-//let myFrame:HTMLFrameElement=<HTMLFrameElement>document.getElementById("framOF");
+let healthElement:HTMLUListElement=<HTMLUListElement>document.getElementById("healthList");
+let healthUser:HTMLUListElement=<HTMLUListElement>document.getElementById("userList");
+let showName:HTMLSpanElement=<HTMLSpanElement>document.getElementById("spanName");
+window.onload=()=>{
+    getUserData();
+    getHealth();
+    getUsersName();
+}
 
-let myHealthData:any = [];
 function getHealth():void{
 let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/Health/UsersDataWithSpecificId/"+LoggedInUserID;
 axios.get<IHelath[]>(uri)
@@ -37,10 +54,14 @@ axios.get<IHelath[]>(uri)
     console.log(response);
     let result: string = "";
     response.data.forEach((health:IHelath)=>{
-        result+="<p>" + "  Blood pressure:  " +health.bloodPressure+
-        "<br> Age: " + health.age+ "<br> Heart Beat: " + health.heartBeat +
-         "<br> UserID: " + health.userId +  "<br> Weight: " + health.weight + 
-         "<br> Date of uploading: " + health.dateTime +  "</p>";
+         result+="<ul>" +
+        //   "  Blood pressure:  " +health.bloodPressure+
+         "<br> Age: " + health.age+
+        //  "<br> Heart Beat: " + health.heartBeat +
+        //  "<br> UserID: " + health.userId + 
+        //  "<br> Weight: " + health.weight + 
+        "<br> Date: " + health.dateTime +  
+        "</ul>";
     })
     healthElement.innerHTML=result;
     console.log(result);
@@ -50,8 +71,53 @@ axios.get<IHelath[]>(uri)
 
 })
 
+}
+
+function getUsersName():void{
+let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/user/specific/"+LoggedInUserID;
+axios.get<IUsers[]>(uri)
+.then(function (response: AxiosResponse<IUsers[]>): void {
+    console.log(response);
+    let result: string = "";
+    response.data.forEach((health:IUsers)=>{
+        result+="<p>"+health.name+"</p>";
+    })
+    showName.innerHTML=result;
+    console.log(result);
+})
+.catch((error:AxiosError)=>{
+    console.log(error);
+
+})
 
 }
+
+
+
+
+function getUserData():void{
+    let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/user/specific/"+LoggedInUserID;
+axios.get<IUsers[]>(uri)
+.then(function (response: AxiosResponse<IUsers[]>): void {
+    console.log(response);
+    let result: string = "";
+    response.data.forEach((health:IUsers)=>{
+        result+="<ul>" + "Username: " +health.name+
+        "<br> Email: " + health.email+ 
+         "<br> Location: " + health.location +  "</ul>";
+    })
+    healthUser.innerHTML=result;
+    console.log(result);
+})
+.catch((error:AxiosError)=>{
+    console.log(error);
+
+})
+
+}
+    
+    
+    
 /*function getHealth():void{
     var regex=/[?&]([^=#]+)=([^&#]*)/g,
     url=window.location.href;
@@ -64,6 +130,13 @@ axios.get<IHelath[]>(uri)
         myFrame.src=uri;
     }
 }*/
+
+
+// result+="<p>" + "Username: " +user.name+
+//                 "<br> Email: " + user.email+ 
+//                 "<br> Location: " + user.location +  "</p>"; 
+
+
 
 
 // $(document).ready({
