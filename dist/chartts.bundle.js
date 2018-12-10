@@ -13640,7 +13640,7 @@ for (var name in colorNames) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* MIT license */
-var convert = __webpack_require__(/*! color-convert */ "./node_modules/chartjs-color/node_modules/color-convert/index.js");
+var convert = __webpack_require__(/*! color-convert */ "./node_modules/color-convert/index.js");
 var string = __webpack_require__(/*! chartjs-color-string */ "./node_modules/chartjs-color-string/color-string.js");
 
 var Color = function (obj) {
@@ -14128,10 +14128,10 @@ module.exports = Color;
 
 /***/ }),
 
-/***/ "./node_modules/chartjs-color/node_modules/color-convert/conversions.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/chartjs-color/node_modules/color-convert/conversions.js ***!
-  \******************************************************************************/
+/***/ "./node_modules/color-convert/conversions.js":
+/*!***************************************************!*\
+  !*** ./node_modules/color-convert/conversions.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -14837,14 +14837,14 @@ for (var key in cssKeywords) {
 
 /***/ }),
 
-/***/ "./node_modules/chartjs-color/node_modules/color-convert/index.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/chartjs-color/node_modules/color-convert/index.js ***!
-  \************************************************************************/
+/***/ "./node_modules/color-convert/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/color-convert/index.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var conversions = __webpack_require__(/*! ./conversions */ "./node_modules/chartjs-color/node_modules/color-convert/conversions.js");
+var conversions = __webpack_require__(/*! ./conversions */ "./node_modules/color-convert/conversions.js");
 
 var convert = function() {
    return new Converter();
