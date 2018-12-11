@@ -26922,7 +26922,6 @@ _node_modules_jquery_dist_jquery__WEBPACK_IMPORTED_MODULE_2__(document).ready(fu
     var WeightData = [];
     heartBtn.addEventListener("click", function () {
         document.getElementById("myChart1").style.display = "block";
-        document.getElementById("chartDiv").style.display = "block";
         var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/Health/UsersDataWithSpecificId/" + LoggedInUserID;
         _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_1___default.a.get(uri)
             .then(function (response) {
@@ -26936,8 +26935,8 @@ _node_modules_jquery_dist_jquery__WEBPACK_IMPORTED_MODULE_2__(document).ready(fu
                     labels: [15, 22, 35, 45, 55, 65, 75, 85, 95, 100, 200, 300, 400],
                     datasets: [{
                             data: HeartData,
-                            label: "HeartRate",
-                            borderColor: "#3e95cd",
+                            label: "HeartBeat",
+                            borderColor: "#FF0000",
                             fill: true
                         }
                     ]
