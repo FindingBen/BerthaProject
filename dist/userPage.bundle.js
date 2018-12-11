@@ -26853,6 +26853,7 @@ var healthElement = document.getElementById("healthList");
 var healthUser = document.getElementById("userList");
 var showName = document.getElementById("spanName");
 var heartBtn = document.getElementById("heart");
+var bpressureBtn = document.getElementById("blood");
 window.onload = function () {
     getUserData();
     getHealth();
@@ -26917,9 +26918,9 @@ function getUserData() {
 }
 _node_modules_jquery_dist_jquery__WEBPACK_IMPORTED_MODULE_2__(document).ready(function () {
     var HeartData = [];
-    //I will implement these two later
     var BloodPressureData = [];
     var WeightData = [];
+    //Button that activates chart for Heart beat data.
     heartBtn.addEventListener("click", function () {
         document.getElementById("myChart1").style.display = "block";
         var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/Health/UsersDataWithSpecificId/" + LoggedInUserID;
@@ -26948,47 +26949,40 @@ _node_modules_jquery_dist_jquery__WEBPACK_IMPORTED_MODULE_2__(document).ready(fu
                     }
                 }
             });
-        })
-            .catch(function (error) {
-            console.log(error);
+        });
+    });
+    //Button that activates chart for blood pressure data.
+    bpressureBtn.addEventListener("click", function () {
+        document.getElementById("myChart1").style.display = "block";
+        var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/Health/UsersDataWithSpecificId/" + LoggedInUserID;
+        _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_1___default.a.get(uri)
+            .then(function (response) {
+            response.data.forEach(function (element) {
+                BloodPressureData.push(element.bloodPressure);
+            });
+            var canvasChart = document.getElementById("myChart1");
+            new _node_modules_chart_js_dist_Chart__WEBPACK_IMPORTED_MODULE_0__["Chart"](canvasChart, {
+                type: 'line',
+                data: {
+                    labels: [15, 22, 35, 45, 55, 65, 75, 85, 95, 100, 200, 300, 400],
+                    datasets: [{
+                            data: BloodPressureData,
+                            label: "Blood pressure",
+                            borderColor: "#CCCC00",
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Your Blood pressure'
+                    }
+                }
+            });
         });
     });
 });
-/*function getHealth():void{
-    var regex=/[?&]([^=#]+)=([^&#]*)/g,
-    url=window.location.href;
-    var params: any={},
-    match;
-    while(match=regex.exec(url)){
-        params[match[1]]=match[2];
-
-        let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/Health/UsersDataWithSpecificId/"+params.id;
-        myFrame.src=uri;
-    }
-}*/
-// result+="<p>" + "Username: " +user.name+
-//                 "<br> Email: " + user.email+ 
-//                 "<br> Location: " + user.location +  "</p>"; 
-// $(document).ready({
-//})
-/* axios.get<Ihealth[]>(uri)
-        .then(function (response: AxiosResponse<Ihealth[]>): void {
-
-            console.log(response.data);
-            let result: string = "";
-
-            response.data.forEach((health: Ihealth) => {
-
-                result += "<p>" + "User Id:" + health.userId + "<br>Blood pressure: " + health.bloodPressure + "<br>Gender:" + health.gender + "<br>Heart Beat: " + health.heartBeat + "<br>Weight: " + health.weight + "</p>";
-
-            });
-
-            healthElement.innerHTML = result;
-            console.log(result);
-        })
-        .catch(function (error: AxiosError) {
-            console.log(error);
-        })*/ 
 
 
 /***/ })

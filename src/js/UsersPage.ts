@@ -44,6 +44,7 @@ let healthElement:HTMLUListElement=<HTMLUListElement>document.getElementById("he
 let healthUser:HTMLUListElement=<HTMLUListElement>document.getElementById("userList");
 let showName:HTMLSpanElement=<HTMLSpanElement>document.getElementById("spanName");
 let heartBtn:HTMLButtonElement=<HTMLButtonElement>document.getElementById("heart");
+let bpressureBtn:HTMLButtonElement=<HTMLButtonElement>document.getElementById("blood");
 window.onload=()=>{
     getUserData();
     getHealth();
@@ -118,15 +119,13 @@ axios.get<IUsers[]>(uri)
 }
     
     
-    $(document).ready(function(){
+$(document).ready(function(){
 
-      
 let HeartData:any = [];
-//I will implement these two later
 let BloodPressureData:any = [];
 let WeightData:any=[];
 
- 
+ //Button that activates chart for Heart beat data.
     heartBtn.addEventListener("click", function(){
     document.getElementById("myChart1").style.display = "block";
 
@@ -139,6 +138,7 @@ let WeightData:any=[];
       });
 
     var canvasChart = document.getElementById("myChart1");
+
     new Chart(canvasChart, {
       type: 'line',
       data: {
@@ -159,55 +159,49 @@ let WeightData:any=[];
       }
     });
 
+})
+    })
+
+//Button that activates chart for blood pressure data.
+    bpressureBtn.addEventListener("click", function(){
+        document.getElementById("myChart1").style.display = "block";
+
+        let uri = "https://birthawebservice20181031094923.azurewebsites.net/api/Health/UsersDataWithSpecificId/" + LoggedInUserID;
+        axios.get(uri)
+        .then(function(response) {
+          
+          response.data.forEach((element:any) => {
+            BloodPressureData.push(element.bloodPressure);
+          });
+    
+        var canvasChart = document.getElementById("myChart1");
+    
+        new Chart(canvasChart, {
+          type: 'line',
+          data: {
+            labels: [15,22,35,45,55,65,75,85,95,100,200,300,400],
+            datasets: [{ 
+                data: BloodPressureData,
+                label: "Blood pressure",
+                borderColor: "#CCCC00",
+                fill: true
+              }
+            ]
+          },
+          options: {
+            title: {
+              display: true,
+              text: 'Your Blood pressure'
+            }
+          }
+        });
+    
+    })
+
+
+
+
 
     })
-    .catch(function (error){ 
-       console.log(error);
-    }); 
-  });
 
-    }
-/*function getHealth():void{
-    var regex=/[?&]([^=#]+)=([^&#]*)/g,
-    url=window.location.href;
-    var params: any={},
-    match;
-    while(match=regex.exec(url)){
-        params[match[1]]=match[2];
-
-        let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/Health/UsersDataWithSpecificId/"+params.id;
-        myFrame.src=uri;
-    }
-}*/
-
-
-// result+="<p>" + "Username: " +user.name+
-//                 "<br> Email: " + user.email+ 
-//                 "<br> Location: " + user.location +  "</p>"; 
-
-
-
-
-// $(document).ready({
-    
-//})
-
-
-/* axios.get<Ihealth[]>(uri)
-        .then(function (response: AxiosResponse<Ihealth[]>): void {
-
-            console.log(response.data);
-            let result: string = "";
-
-            response.data.forEach((health: Ihealth) => {
-
-                result += "<p>" + "User Id:" + health.userId + "<br>Blood pressure: " + health.bloodPressure + "<br>Gender:" + health.gender + "<br>Heart Beat: " + health.heartBeat + "<br>Weight: " + health.weight + "</p>";
-
-            });
-
-            healthElement.innerHTML = result;
-            console.log(result);
-        })
-        .catch(function (error: AxiosError) {
-            console.log(error);
-        })*/
+})
