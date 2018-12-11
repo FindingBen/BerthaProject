@@ -129,7 +129,6 @@ let WeightData:any=[];
  
     heartBtn.addEventListener("click", function(){
     document.getElementById("myChart1").style.display = "block";
-    document.getElementById("chartDiv").style.display = "block";
 
     let uri = "https://birthawebservice20181031094923.azurewebsites.net/api/Health/UsersDataWithSpecificId/" + LoggedInUserID;
     axios.get(uri)
@@ -146,8 +145,8 @@ let WeightData:any=[];
         labels: [15,22,35,45,55,65,75,85,95,100,200,300,400],
         datasets: [{ 
             data: HeartData,
-            label: "HeartRate",
-            borderColor: "#3e95cd",
+            label: "HeartBeat",
+            borderColor: "#FF0000",
             fill: true
           }
         ]
