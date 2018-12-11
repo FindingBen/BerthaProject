@@ -11,20 +11,20 @@ interface Ihealth {
     heartBeat: number;
     age: number;
     weight: number;
-    dateTime:Date;
+    dateTime: Date;
     userId: number;
-    gender:string;
 }
 interface IEnvironment{
 id:number;
-oxygen:number;
-nitrogen:number;
-carbonDioxide:number;
-methane:number;
 userId:number;
+humidity:number;
+temperatur:number;
+dateTime: Date;
+location: string;
+
 }
 
-let healthList:HTMLOListElement  = <HTMLOListElement>document.getElementById("HealthList");
+let healthList:HTMLUListElement  = <HTMLUListElement>document.getElementById("HealthList");
 //getData
 let GetById: HTMLButtonElement = <HTMLButtonElement>document.getElementById("getData");
 GetById.addEventListener("click", getAll);
@@ -39,7 +39,7 @@ function getAll(): void {
 
             response.data.forEach((health: Ihealth) => {
 
-                result += "<p>" + "User Id:" + health.userId + "<br>Blood pressure: " + health.bloodPressure + "<br>Gender:" + health.gender + "<br>Heart Beat: " + health.heartBeat + "<br>Weight: " + health.weight + "</p>";
+                result += "<li class=\"list-inline-item listItem\" >" + "<span class=\"category\">UserID:&nbsp;</span>" + health.userId + "<br/><span class=\"category\">Blood Pressure:&nbsp;</span>" + health.bloodPressure + "<br/><span class=\"category\">Age:&nbsp;</span>" + health.age + "<br/><span class=\"category\">Heart Beat:&nbsp;</span>" + health.heartBeat + "<br/><span class=\"category\">Weight:&nbsp;</span>" + health.weight + "</li>";
 
             });
 
@@ -64,21 +64,20 @@ function getById():void{
         .then(function (response: AxiosResponse<Ihealth[]>): void {
             console.log(response);
             let result: string = "";
-            response.data.forEach((health: Ihealth) =>{
-                result+="<p>" + "  Blood pressure:  " +health.bloodPressure+ "<br> Date of uploading: " + health.dateTime+
-                 "<br> Heart Beat: " + health.heartBeat +
-                 "<br> Age: " + health.age +
-                 "<br> Weight: " + health.weight +  "</p>";
-                healthById.innerHTML=result;
-                console.log(result);
-            }
-            )
+            response.data.forEach((health: Ihealth) => {
+
+                result += "<li class=\"list-inline-item listItem\" id=\"dataID\"" + "<span class=\"category\">Blood Pressure:&nbsp;</span>" + health.bloodPressure + "<br/><span class=\"category\">Age:&nbsp;</span>" + health.age + "<br/><span class=\"category\">Heart Beat:&nbsp;</span>" + health.heartBeat + "<br/><span class=\"category\">Weight:&nbsp;</span>" + health.weight + "<br/><span class=\"category\">Date and time:&nbsp;</span>"+ health.dateTime + "</li>";
+
+            });
+            healthById.innerHTML=result;
+            console.log(result);
         })
-    
         .catch((error:AxiosError)=>{
             console.log(error);
         
         })
+
+
 }
 
 
@@ -92,12 +91,12 @@ function getAllEnviro(): void {
     axios.get<IEnvironment[]>(uri)
         .then(function (response: AxiosResponse<IEnvironment[]>): void {
 
-            console.log(response.data);
+            console.log(response);
             let result: string = "";
 
             response.data.forEach((enviro: IEnvironment) => {
 
-                result += "<p>" + "User Id:" + enviro.userId + "<br>Oxygen: " + enviro.oxygen + "<br>Nitrogen:" + enviro.nitrogen + "<br>Methane: " + enviro.methane + "<br>CarbonDioxide: " + enviro.carbonDioxide + "</p>";
+                result += "<li class=\"list-inline-item listItem e\" id=\"enviro\"" + "<span class=\"category\">User ID:&nbsp;</span>" + enviro.userId + "<br/><span class=\"category\">Humidity:&nbsp;</span>" + enviro.humidity + "<br/><span class=\"category\">Temperature:&nbsp;</span>" + enviro.temperatur + "<br/><span class=\"category\">Date and time:&nbsp;</span>" + enviro.dateTime + "<br/><span class=\"category\">Location:&nbsp;</span>" + enviro.location + "</p>";
 
             });
     

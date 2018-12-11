@@ -29,7 +29,9 @@ module.exports = {
     aboutts:'./src/js/About.ts',
     css:'./dist/css',
     history:'./src/js/History.ts',
-    historyh:'./src/History.html'
+    historyh:'./src/History.html',
+    update:'./src/js/Update.ts',
+    updateh:'./src/Update.html'
   },
   module: {
     // rules webpack should follow when watching...

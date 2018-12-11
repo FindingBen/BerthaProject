@@ -2004,7 +2004,7 @@ function getAll() {
         console.log(response.data);
         var result = "";
         response.data.forEach(function (health) {
-            result += "<p>" + "User Id:" + health.userId + "<br>Blood pressure: " + health.bloodPressure + "<br>Gender:" + health.gender + "<br>Heart Beat: " + health.heartBeat + "<br>Weight: " + health.weight + "</p>";
+            result += "<li class=\"list-inline-item listItem\" >" + "<span class=\"category\">UserID:&nbsp;</span>" + health.userId + "<br/><span class=\"category\">Blood Pressure:&nbsp;</span>" + health.bloodPressure + "<br/><span class=\"category\">Age:&nbsp;</span>" + health.age + "<br/><span class=\"category\">Heart Beat:&nbsp;</span>" + health.heartBeat + "<br/><span class=\"category\">Weight:&nbsp;</span>" + health.weight + "</li>";
         });
         healthList.innerHTML = result;
         console.log(result);
@@ -2025,13 +2025,10 @@ function getById() {
         console.log(response);
         var result = "";
         response.data.forEach(function (health) {
-            result += "<p>" + "  Blood pressure:  " + health.bloodPressure + "<br> Date of uploading: " + health.dateTime +
-                "<br> Heart Beat: " + health.heartBeat +
-                "<br> Age: " + health.age +
-                "<br> Weight: " + health.weight + "</p>";
-            healthById.innerHTML = result;
-            console.log(result);
+            result += "<li class=\"list-inline-item listItem\" id=\"dataID\"" + "<span class=\"category\">Blood Pressure:&nbsp;</span>" + health.bloodPressure + "<br/><span class=\"category\">Age:&nbsp;</span>" + health.age + "<br/><span class=\"category\">Heart Beat:&nbsp;</span>" + health.heartBeat + "<br/><span class=\"category\">Weight:&nbsp;</span>" + health.weight + "<br/><span class=\"category\">Date and time:&nbsp;</span>" + health.dateTime + "</li>";
         });
+        healthById.innerHTML = result;
+        console.log(result);
     })
         .catch(function (error) {
         console.log(error);
@@ -2045,10 +2042,10 @@ function getAllEnviro() {
     var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/environment";
     _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.get(uri)
         .then(function (response) {
-        console.log(response.data);
+        console.log(response);
         var result = "";
         response.data.forEach(function (enviro) {
-            result += "<p>" + "User Id:" + enviro.userId + "<br>Oxygen: " + enviro.oxygen + "<br>Nitrogen:" + enviro.nitrogen + "<br>Methane: " + enviro.methane + "<br>CarbonDioxide: " + enviro.carbonDioxide + "</p>";
+            result += "<li class=\"list-inline-item listItem e\" id=\"enviro\"" + "<span class=\"category\">User ID:&nbsp;</span>" + enviro.userId + "<br/><span class=\"category\">Humidity:&nbsp;</span>" + enviro.humidity + "<br/><span class=\"category\">Temperature:&nbsp;</span>" + enviro.temperatur + "<br/><span class=\"category\">Date and time:&nbsp;</span>" + enviro.dateTime + "<br/><span class=\"category\">Location:&nbsp;</span>" + enviro.location + "</p>";
         });
         EnviroList.innerHTML = result;
         console.log(result);
