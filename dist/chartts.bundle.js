@@ -32285,7 +32285,8 @@ var myChart1 = document.getElementById('myChart1');
 var myChart2 = document.getElementById('myChart2');
 var myChart3 = document.getElementById('myChart3');
 var myChart4 = document.getElementById('myChart4');
-// Global Options
+//array for chart
+var HeartData = [];
 var massPopChart1 = new chart_js__WEBPACK_IMPORTED_MODULE_0__["Chart"](myChart1, {
     type: 'bar',
     data: {

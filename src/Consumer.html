@@ -124,16 +124,7 @@
     </head>
 
 <body>
-
-
-
-
   <div class="flex-container my-container">
-
-
-
-
-
 
     <div class="row my-row row1 ">
       <div class="col-3 my-col d-flex align-items-end ">
@@ -159,8 +150,7 @@
           <div class="card-header"><b>Personal information</b></div>
           <div class="card-body">
             <h3 class="card-title"><span id="spanName"></span></h3>
-          </br>
-        </br>
+        
               <div class="card-text">
 
               <ul class="hlist" id="healthList"></ul>
@@ -170,15 +160,6 @@
               
           
              
-            
-             <!-- <div class="card-text" id="cardlocation"><b></b></div> 
-            
-             <div class="card-text" id="cardgender"><b></b></div> 
-
-             <div class="card-text" id="cardage"><b></b></div> 
-
-             <div class="card-text" id="carddate"><b></b></div>  -->
-             
             </br>
           </br>
             <p class="card-text"><b>We appreciate your help!</b></p>
@@ -186,14 +167,10 @@
           </div>
         </div>
 
-
-
-        
-
       </div>
       <div class="col-9 my-col row2col2">
         <div class="row my-row row2">
-          <div class="col-9 my-col d-flex justify-content-center chart">
+          <div class="col-9 my-col d-flex justify-content-center chart" id="chartDiv">
               <canvas id="myChart1" class="align-self-center" style="background:white">
                 </canvas>
 
@@ -205,7 +182,7 @@
                 <p class="bp2"> <b>Blood Preasure</b></p>
                 </button>
               </br>
-                <button  type="button" class="btn bbtn btn-danger align-self-center">
+                <button  type="button" class="btn bbtn btn-danger align-self-center" id="heart">
                     <img width="70px" src="assets/icons8-heart-96.png"></br> 
                     <p class="bp"> <b> Heartbeat</b></p> </button>
                 
@@ -217,8 +194,6 @@
             </div>
       </div>
     </div>
-
-
 
       <div class="row my-row" style="height:50px">
         <div class="col  my-col">
@@ -234,9 +209,6 @@
         </div>
 
       </div>
-
-
-
 
       <div class="fixed-top " style="height:70px">
 
@@ -292,11 +264,11 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="false">
                       <img class="rounded-circle" width="40" src="assets/avatar.png">
-                      Benjamin Laslo
+                      <span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Edit Profile</a>
-                      <a class="dropdown-item" href="#">History</a>
+                      <a class="dropdown-item" href="Update.html">Edit Profile</a>
+                      <a class="dropdown-item" href="History.html">History</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="index.htm">Log out</a>
                     </div>
