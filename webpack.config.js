@@ -15,7 +15,7 @@ module.exports = {
     userRegistration:'./src/js/userRegistration.ts',
     userPage:'./src/js/UsersPage.ts',
     login:'./src/index.htm',
-    adminPage:'./src/MainPage.html',
+    adminPage:'./src/MainPage.htm',
     signUp:'./src/SignUpPage.htm',
     usersPage:'./src/Consumer.html',
     addData:'./src/AddData.html',

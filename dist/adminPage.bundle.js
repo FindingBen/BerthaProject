@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/MainPage.html");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/MainPage.htm");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/MainPage.html":
-/*!***************************!*\
-  !*** ./src/MainPage.html ***!
-  \***************************/
+/***/ "./src/MainPage.htm":
+/*!**************************!*\
+  !*** ./src/MainPage.htm ***!
+  \**************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/file-loader/dist/cjs.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\Benii\\Desktop\\BerthaProject\\src\\MainPage.html'");
+module.exports = __webpack_require__.p + "MainPage.htm";
 
 /***/ })
 

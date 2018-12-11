@@ -1,6 +1,5 @@
 import { Chart} from "chart.js";
     
-
     let myChart1 = document.getElementById('myChart1')
     let myChart2 = document.getElementById('myChart2')
     let myChart3 = document.getElementById('myChart3')
@@ -8,8 +7,10 @@ import { Chart} from "chart.js";
 
     
 
-        // Global Options
+
    
+//array for chart
+    let HeartData:any = [];
 
     let massPopChart1 = new Chart(myChart1, {
       type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
