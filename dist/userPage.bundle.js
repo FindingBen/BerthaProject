@@ -26854,6 +26854,7 @@ var healthUser = document.getElementById("userList");
 var showName = document.getElementById("spanName");
 var heartBtn = document.getElementById("heart");
 var bpressureBtn = document.getElementById("blood");
+var weightBtn = document.getElementById("weight");
 window.onload = function () {
     getUserData();
     getHealth();
@@ -26977,6 +26978,36 @@ _node_modules_jquery_dist_jquery__WEBPACK_IMPORTED_MODULE_2__(document).ready(fu
                     title: {
                         display: true,
                         text: 'Your Blood pressure'
+                    }
+                }
+            });
+        });
+    });
+    weightBtn.addEventListener("click", function () {
+        document.getElementById("myChart1").style.display = "block";
+        var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/Health/UsersDataWithSpecificId/" + LoggedInUserID;
+        _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_1___default.a.get(uri)
+            .then(function (response) {
+            response.data.forEach(function (element) {
+                WeightData.push(element.weight);
+            });
+            var canvasChart = document.getElementById("myChart1");
+            new _node_modules_chart_js_dist_Chart__WEBPACK_IMPORTED_MODULE_0__["Chart"](canvasChart, {
+                type: 'line',
+                data: {
+                    labels: [15, 22, 35, 45, 55, 65, 75, 85, 95, 100, 200, 300, 400],
+                    datasets: [{
+                            data: WeightData,
+                            label: "Weight",
+                            borderColor: "#006400",
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Your Weight progress'
                     }
                 }
             });

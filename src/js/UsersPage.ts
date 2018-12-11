@@ -45,6 +45,7 @@ let healthUser:HTMLUListElement=<HTMLUListElement>document.getElementById("userL
 let showName:HTMLSpanElement=<HTMLSpanElement>document.getElementById("spanName");
 let heartBtn:HTMLButtonElement=<HTMLButtonElement>document.getElementById("heart");
 let bpressureBtn:HTMLButtonElement=<HTMLButtonElement>document.getElementById("blood");
+let weightBtn:HTMLButtonElement=<HTMLButtonElement>document.getElementById("weight");
 window.onload=()=>{
     getUserData();
     getHealth();
@@ -203,5 +204,47 @@ let WeightData:any=[];
 
 
     })
+
+    weightBtn.addEventListener("click", function(){
+        document.getElementById("myChart1").style.display = "block";
+
+        let uri = "https://birthawebservice20181031094923.azurewebsites.net/api/Health/UsersDataWithSpecificId/" + LoggedInUserID;
+        axios.get(uri)
+        .then(function(response) {
+          
+          response.data.forEach((element:any) => {
+            WeightData.push(element.weight);
+          });
+    
+        var canvasChart = document.getElementById("myChart1");
+    
+        new Chart(canvasChart, {
+          type: 'line',
+          data: {
+            labels: [15,22,35,45,55,65,75,85,95,100,200,300,400],
+            datasets: [{ 
+                data: WeightData,
+                label: "Weight",
+                borderColor: "#006400",
+                fill: true
+              }
+            ]
+          },
+          options: {
+            title: {
+              display: true,
+              text: 'Your Weight progress'
+            }
+          }
+        });
+    
+    })
+
+
+
+
+
+    })
+
 
 })
