@@ -18,7 +18,6 @@ module.exports = {
     adminPage:'./src/MainPage.html',
     signUp:'./src/SignUpPage.htm',
     usersPage:'./src/Consumer.html',
-    style:'./src/scss/styles.scss',
     addData:'./src/AddData.html',
     addDataTs:'./src/js/AddData.ts',
     addEnvi:'./src/AddEnviro.html',
