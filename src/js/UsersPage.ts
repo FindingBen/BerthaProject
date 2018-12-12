@@ -46,6 +46,7 @@ let showName:HTMLSpanElement=<HTMLSpanElement>document.getElementById("spanName"
 let heartBtn:HTMLButtonElement=<HTMLButtonElement>document.getElementById("heart");
 let bpressureBtn:HTMLButtonElement=<HTMLButtonElement>document.getElementById("blood");
 let weightBtn:HTMLButtonElement=<HTMLButtonElement>document.getElementById("weight");
+let adminPanel:HTMLButtonElement=<HTMLButtonElement>document.getElementById("accessPanel");
 window.onload=()=>{
     getUserData();
     getHealth();
