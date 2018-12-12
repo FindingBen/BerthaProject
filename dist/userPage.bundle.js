@@ -26855,6 +26855,7 @@ var showName = document.getElementById("spanName");
 var heartBtn = document.getElementById("heart");
 var bpressureBtn = document.getElementById("blood");
 var weightBtn = document.getElementById("weight");
+var adminPanel = document.getElementById("accessPanel");
 window.onload = function () {
     getUserData();
     getHealth();
