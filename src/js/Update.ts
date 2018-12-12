@@ -50,10 +50,13 @@ function addUser():void{
     axios.put<IUsers>(URI,{id:MyId,name:MyName,email:MyEmail,password:MyPass,location:MyLocation,gender:MyGender})
     .then(function(response:AxiosResponse):void{
         console.log(response.status+" "+response.statusText);
+        
+        alert("Your Info has been changed")
 
     })
     .catch((error:AxiosError)=>{
         console.log(error)
        
     });
+
 }
