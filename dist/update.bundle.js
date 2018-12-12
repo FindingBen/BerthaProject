@@ -2015,6 +2015,7 @@ function addUser() {
     _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.put(URI, { id: MyId, name: MyName, email: MyEmail, password: MyPass, location: MyLocation, gender: MyGender })
         .then(function (response) {
         console.log(response.status + " " + response.statusText);
+        alert("Your Info has been changed");
     })
         .catch(function (error) {
         console.log(error);
