@@ -2001,12 +2001,14 @@ function addUser() {
     var addName = document.getElementById("inputName");
     var addPass = document.getElementById("inputPassword");
     var addLocation = document.getElementById("inputLocation");
+    var gen = document.getElementById("selectGender");
     var MyEmail = addEmail.value;
     var MyName = addName.value;
     var MyPass = Number(addPass.value);
     var MyLocation = addLocation.value;
+    var MyGender = gen.value;
     var URI = "https://birthawebservice20181031094923.azurewebsites.net/api/user";
-    _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.post(URI, { name: MyName, email: MyEmail, password: MyPass, location: MyLocation })
+    _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_0___default.a.post(URI, { name: MyName, email: MyEmail, password: MyPass, location: MyLocation, gender: MyGender })
         .then(function (response) {
         console.log(response.status + " " + response.statusText);
     })
