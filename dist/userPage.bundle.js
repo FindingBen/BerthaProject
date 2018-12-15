@@ -26855,11 +26855,13 @@ var showName = document.getElementById("spanName");
 var heartBtn = document.getElementById("heart");
 var bpressureBtn = document.getElementById("blood");
 var weightBtn = document.getElementById("weight");
-var adminPanel = document.getElementById("accessPanel");
+// let adminPanel:HTMLButtonElement=<HTMLButtonElement>document.getElementById("accessPanel");
+// adminPanel.addEventListener("click",authorizeUser);
 window.onload = function () {
     getUserData();
     getHealth();
     getUsersName();
+    // authorizeUser();
 };
 function getHealth() {
     var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/Health/UsersDataWithSpecificId/" + LoggedInUserID;
@@ -26884,6 +26886,24 @@ function getHealth() {
         console.log(error);
     });
 }
+var UserID;
+// function authorizeUser():void{
+// let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/user/"+LoggedInUserID;
+// axios.get(uri)
+// .then(function(response:AxiosResponse):void{
+//     console.log(response.data);
+//     if(response.data !==null){
+//         // UserID =  response.data.id;
+//         //     localStorage.setItem("key", UserID.toString());
+//             if(response.data.isAdmin==true){
+//                window.location.href='MainPage.htm';
+//             }
+//             else{
+//                 alert("You need special permission to access this panel!");
+//             }
+//     }
+// })
+// }
 function getUsersName() {
     var uri = "https://birthawebservice20181031094923.azurewebsites.net/api/user/specific/" + LoggedInUserID;
     _node_modules_axios_index__WEBPACK_IMPORTED_MODULE_1___default.a.get(uri)
@@ -26918,6 +26938,10 @@ function getUserData() {
         console.log(error);
     });
 }
+var canvas = document.getElementById("myChart1");
+var ctx = canvas.getContext("2d");
+ctx.font = "30px Arial";
+ctx.fillText("Choose your chart ➝", 10, 70);
 _node_modules_jquery_dist_jquery__WEBPACK_IMPORTED_MODULE_2__(document).ready(function () {
     var HeartData = [];
     var BloodPressureData = [];
