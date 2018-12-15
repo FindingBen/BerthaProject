@@ -46,14 +46,14 @@ let showName:HTMLSpanElement=<HTMLSpanElement>document.getElementById("spanName"
 let heartBtn:HTMLButtonElement=<HTMLButtonElement>document.getElementById("heart");
 let bpressureBtn:HTMLButtonElement=<HTMLButtonElement>document.getElementById("blood");
 let weightBtn:HTMLButtonElement=<HTMLButtonElement>document.getElementById("weight");
-// let adminPanel:HTMLButtonElement=<HTMLButtonElement>document.getElementById("accessPanel");
-// adminPanel.addEventListener("click",authorizeUser);
+//  let adminPanel:HTMLButtonElement=<HTMLButtonElement>document.getElementById("accessPanel");
+//  adminPanel.addEventListener("click",authorizeUser);
 
 window.onload=()=>{
     getUserData();
     getHealth();
     getUsersName();
-    // authorizeUser();
+    //  authorizeUser();
 }
 
 function getHealth():void{
@@ -81,26 +81,24 @@ axios.get<IHelath[]>(uri)
 })
 
 }
-let UserID:number;
-// function authorizeUser():void{
+// let UserName:string;
+//  function authorizeUser():void{
 
-// let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/user/"+LoggedInUserID;
-// axios.get(uri)
-// .then(function(response:AxiosResponse):void{
-//     console.log(response.data);
-//     if(response.data !==null){
-//         // UserID =  response.data.id;
-//         //     localStorage.setItem("key", UserID.toString());
-//             if(response.data.isAdmin==true){
-//                window.location.href='MainPage.htm';
-//             }
-//             else{
-//                 alert("You need special permission to access this panel!");
-//             }
-//     }
+//  let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/user/specific/"+LoggedInUserID;
+//  axios.get(uri)
+//  .then(function(response:AxiosResponse):void{
+//      console.log(response.data);
+//      if(response.data !==null){
+//              if(response.data.name=='Issa'){
+//                 window.location.href='MainPage.htm';
+//              }
+//              else{
+//                  alert("You need special permission to access this panel!");
+//              }
+//      }
 
-// })
-// }
+//  })
+//  }
 
 function getUsersName():void{
 let uri:string="https://birthawebservice20181031094923.azurewebsites.net/api/user/specific/"+LoggedInUserID;
